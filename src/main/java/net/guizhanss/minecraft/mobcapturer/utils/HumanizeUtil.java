@@ -4,7 +4,7 @@ import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 import javax.annotation.Nonnull;
 
-public class HumanizeUtil {
+public final class HumanizeUtil {
     @Nonnull
     public static String getBoolean(boolean bool){
         return bool ? "是" : "否";
@@ -283,6 +283,18 @@ public class HumanizeUtil {
                 return "武器匠";
             default:
                 return ChatUtils.humanize(profession);
+        }
+    }
+
+    @Nonnull
+    public static String getFoxType(String type){
+        switch(type.toLowerCase()){
+            case "red":
+                return "红色";
+            case "snow":
+                return "白色";
+            default:
+                return ChatUtils.humanize(type);
         }
     }
 }

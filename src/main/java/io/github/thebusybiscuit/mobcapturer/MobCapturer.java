@@ -4,6 +4,9 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.Optional;
 
+import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
+import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -54,10 +57,13 @@ import io.github.thebusybiscuit.mobcapturer.items.MobCannon;
 import io.github.thebusybiscuit.mobcapturer.items.MobEgg;
 import io.github.thebusybiscuit.mobcapturer.items.MobPellet;
 import io.github.thebusybiscuit.mobcapturer.mobs.AnimalsAdapter;
+import io.github.thebusybiscuit.mobcapturer.mobs.BeeAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.CatAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ChestedHorseAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.CreeperAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.EndermiteAdapter;
+import io.github.thebusybiscuit.mobcapturer.mobs.FoxAdapter;
+import io.github.thebusybiscuit.mobcapturer.mobs.HoglinAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.HorseAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.IronGolemAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.LlamaAdapter;
@@ -67,6 +73,8 @@ import io.github.thebusybiscuit.mobcapturer.mobs.PandaAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ParrotAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.PhantomAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.PigAdapter;
+import io.github.thebusybiscuit.mobcapturer.mobs.PiglinAdapter;
+import io.github.thebusybiscuit.mobcapturer.mobs.PiglinBruteAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.PufferFishAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.RabbitAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.RaiderAdapter;
@@ -76,12 +84,15 @@ import io.github.thebusybiscuit.mobcapturer.mobs.SkeletonAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.SlimeAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.SnowmanAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.StandardMobAdapter;
+import io.github.thebusybiscuit.mobcapturer.mobs.StriderAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.TropicalFishAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.UndeadHorseAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.VexAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.WolfAdapter;
+import io.github.thebusybiscuit.mobcapturer.mobs.ZoglinAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ZombieAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ZombieVillagerAdapter;
+import io.github.thebusybiscuit.mobcapturer.mobs.ZombifiedPiglinAdapter;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.core.researching.Research;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -91,7 +102,6 @@ import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.cscorelib2.config.Config;
 import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 import me.mrCookieSlime.Slimefun.cscorelib2.skull.SkullItem;
-import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
 
 public class MobCapturer extends JavaPlugin implements SlimefunAddon {
 
@@ -109,9 +119,9 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
         Config cfg = new Config(this);
         new Metrics(this, 6672);
 
-        /*if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
-            new GitHubBuildsUpdater(this, getFile(), "TheBusyBiscuit/MobCapturer/master").start();
-        }*/
+        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
+            new GitHubBuildsUpdater(this, getFile(), "ybw00014/MobCapturer/master").start();
+        }
 
         new PelletListener(this);
 
@@ -142,6 +152,8 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
         register("海龟", EntityType.TURTLE, new AnimalsAdapter<>(Turtle.class), "15a45e24cadc18f305291af45a22fc8b3607a675baa31ed583d3a56b15223c5c");
         register("北极熊", EntityType.POLAR_BEAR, new AnimalsAdapter<>(PolarBear.class), "291abcab7a20b28195c0f1786db28c7670c2979243de71703b04e9d93f59aa8d");
         register("熊猫", EntityType.PANDA, new PandaAdapter(), "1ab24611bb37ce3971fdbf01ba3f11bd2e4c72f5d40b6d8d8d536d69e695cd0c");
+        register("狐狸", EntityType.FOX, new FoxAdapter(), "db8c11abae08927c8ae413d22f2f556c954c7d8a4edf0aa3f4b86597fb7b1cec");
+        register("蜜蜂", EntityType.BEE, new BeeAdapter(), "208e55d3b4a865f4888174c02592a631d0a10475fa2686b490d465860fe8cf91");
 
         // Mobs
         register("史莱姆", EntityType.SLIME, new SlimeAdapter<>(Slime.class), "9330af17f8512ed3b49e78bca7ef2d83f2dc1e598a8cb542ecc3b6becee9f57");
@@ -168,6 +180,15 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
         register("烈焰人", EntityType.BLAZE, new StandardMobAdapter<>(Blaze.class), "533acae6e075a578ccfc7dc2d5a15dbccfa8f59c609f9703889ef54c742c56");
         register("岩浆怪", EntityType.MAGMA_CUBE, new SlimeAdapter<>(MagmaCube.class), "1185657c38acdd8f95e1d2cd1115bb0f11139ad2b3ce442267e69706d916e");
         register("恶魂", EntityType.GHAST, new StandardMobAdapter<>(Ghast.class), "c442c228f099fdfc1c6b46dfc80b252d81f7fb1739deb16ee7a597c17f7c9");
+        // 1.16 update
+        if (SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_16)) {
+            register("猪灵", EntityType.PIGLIN, new PiglinAdapter(), "f2f621045771323d916c26bfb5ebec5738dbff8301246fe1481e9f9d25326f3b");
+            register("猪灵蛮兵", EntityType.PIGLIN_BRUTE, new PiglinBruteAdapter(), "b13a4d678041dff776fffd96486e90f1b5e115af33647454caf401fd3fd00d5e");
+            register("僵尸猪灵", EntityType.ZOMBIFIED_PIGLIN, new ZombifiedPiglinAdapter(), "4db2e40571acefdcb7f15f94e1f174c3b9c299921f14da052628a0ba18e0c323");
+            register("疣猪兽", EntityType.HOGLIN, new HoglinAdapter(), "a6eddc5a25d4ff8f9f3490d673613093e65b866d369a26f8ee8b93983c692be3");
+            register("僵尸疣猪兽", EntityType.ZOGLIN, new ZoglinAdapter(), "31a6d71f3587ad1888d757fea265614ab7d0204daade131954fb675e92585227");
+            register("炽足兽", EntityType.STRIDER, new StriderAdapter(), "34f2759b413a8a645504fb5074dae1dddcc8af150b7fe06cc5832667e776b6f7");
+        }
 
         // Ender things
         register("潜影贝", EntityType.SHULKER, new ShulkerAdapter(), "d04252216231b3f744c9ff4ace7084ae9f4164f8b384c65410848a19617af4d");

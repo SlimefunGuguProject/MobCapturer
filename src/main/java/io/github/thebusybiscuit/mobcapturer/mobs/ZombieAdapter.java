@@ -28,6 +28,7 @@ public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> 
     public JsonObject saveData(T entity) {
         JsonObject json = super.saveData(entity);
 
+        json.addProperty("age", entity.getAge());
         json.addProperty("baby", !entity.isAdult());
 
         if (entity.isConverting()) {
@@ -41,10 +42,7 @@ public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> 
     public void apply(T entity, JsonObject json) {
         super.apply(entity, json);
 
-        if(json.get("baby").getAsBoolean())
-            entity.setBaby();
-        else
-            entity.setAdult();
+        entity.setAge(json.get("age").getAsInt());
 
         if (json.has("conversionTime")) {
             entity.setConversionTime(json.get("conversionTime").getAsInt());
