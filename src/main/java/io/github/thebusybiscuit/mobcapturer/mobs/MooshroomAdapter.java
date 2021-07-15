@@ -8,7 +8,7 @@ import org.bukkit.entity.MushroomCow.Variant;
 
 import com.google.gson.JsonObject;
 
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
 
 public class MooshroomAdapter extends AnimalsAdapter<MushroomCow> {
 
@@ -20,7 +20,7 @@ public class MooshroomAdapter extends AnimalsAdapter<MushroomCow> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Variant: " + ChatColor.WHITE + ChatUtils.humanize(json.get("variant").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HumanizeUtil.getSheepColor(json.get("variant").getAsString()));
 
         return lore;
     }

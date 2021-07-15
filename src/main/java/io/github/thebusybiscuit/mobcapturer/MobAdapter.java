@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
@@ -47,16 +48,16 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
         List<String> lore = new LinkedList<>();
 
         lore.add("");
-        lore.add(ChatColor.GRAY + "Health: " + ChatColor.GREEN + NumberUtils.roundDecimalNumber(json.get("_health").getAsDouble()));
+        lore.add(ChatColor.GRAY + "生命值: " + ChatColor.GREEN + NumberUtils.roundDecimalNumber(json.get("_health").getAsDouble()));
 
         if (!json.get("_customName").isJsonNull()) {
-            lore.add(ChatColor.GRAY + "Name: " + ChatColor.RESET + json.get("_customName").getAsString());
+            lore.add(ChatColor.GRAY + "名称: " + ChatColor.RESET + json.get("_customName").getAsString());
         }
 
         int fireTicks = json.get("_fireTicks").getAsInt();
 
         if (fireTicks > 0) {
-            lore.add(ChatColor.GRAY + "On Fire: " + ChatColor.RESET + "true");
+            lore.add(ChatColor.GRAY + "着火: " + ChatColor.RESET + "是");
         }
 
         return lore;

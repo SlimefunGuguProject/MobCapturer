@@ -10,6 +10,8 @@ import org.bukkit.inventory.ItemStack;
 
 import com.google.gson.JsonObject;
 
+import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+
 public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAdapter<T> {
 
     public ChestedHorseAdapter(Class<T> entityClass) {
@@ -20,7 +22,7 @@ public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAd
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Chest: " + ChatColor.WHITE + json.get("chest").getAsBoolean());
+        lore.add(ChatColor.GRAY + "携带箱子: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("chest").getAsBoolean()));
 
         return lore;
     }

@@ -9,8 +9,9 @@ import org.bukkit.entity.Shulker;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 public class ShulkerAdapter implements MobAdapter<Shulker> {
 
@@ -21,7 +22,7 @@ public class ShulkerAdapter implements MobAdapter<Shulker> {
         JsonElement color = json.get("color");
 
         if (!color.isJsonNull()) {
-            lore.add(ChatColor.GRAY + "Color: " + ChatColor.WHITE + ChatUtils.humanize(color.getAsString()));
+            lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HumanizeUtil.getSheepColor(color.getAsString()));
         }
 
         return lore;

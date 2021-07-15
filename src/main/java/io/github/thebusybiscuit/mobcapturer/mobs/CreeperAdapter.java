@@ -9,13 +9,15 @@ import com.google.gson.JsonObject;
 
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 
+import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+
 public class CreeperAdapter implements MobAdapter<Creeper> {
 
     @Override
     public List<String> getLore(JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Powered: " + ChatColor.WHITE + json.get("powered").getAsBoolean());
+        lore.add(ChatColor.GRAY + "闪电: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("powered").getAsBoolean()));
 
         return lore;
     }

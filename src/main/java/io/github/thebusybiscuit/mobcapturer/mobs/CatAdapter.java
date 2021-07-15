@@ -9,7 +9,7 @@ import org.bukkit.entity.Cat.Type;
 
 import com.google.gson.JsonObject;
 
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
 
 public class CatAdapter extends AbstractTameableAdapter<Cat> {
 
@@ -21,11 +21,11 @@ public class CatAdapter extends AbstractTameableAdapter<Cat> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Variant: " + ChatColor.WHITE + ChatUtils.humanize(json.get("catType").getAsString()));
+        lore.add(ChatColor.GRAY + "类型: " + ChatColor.WHITE + HumanizeUtil.getCatType(json.get("catType").getAsString()));
 
         if (!json.get("ownerUUID").isJsonNull()) {
-            lore.add(ChatColor.GRAY + "Collar Color: " + ChatColor.WHITE + ChatUtils.humanize(json.get("collarColor").getAsString()));
-            lore.add(ChatColor.GRAY + "Sitting: " + ChatColor.WHITE + json.get("sitting").getAsBoolean());
+            lore.add(ChatColor.GRAY + "项圈颜色: " + ChatColor.WHITE + HumanizeUtil.getSheepColor(json.get("collarColor").getAsString()));
+            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("sitting").getAsBoolean()));
         }
 
         return lore;

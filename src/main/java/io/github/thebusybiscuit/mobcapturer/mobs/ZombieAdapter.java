@@ -7,6 +7,8 @@ import org.bukkit.entity.Zombie;
 
 import com.google.gson.JsonObject;
 
+import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+
 public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> {
 
     public ZombieAdapter(Class<T> entityClass) {
@@ -17,7 +19,7 @@ public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> 
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Baby: " + ChatColor.WHITE + json.get("baby").getAsBoolean());
+        lore.add(ChatColor.GRAY + "幼年: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("baby").getAsBoolean()));
 
         return lore;
     }

@@ -9,13 +9,15 @@ import com.google.gson.JsonObject;
 
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 
+import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+
 public class PufferFishAdapter implements MobAdapter<PufferFish> {
 
     @Override
     public List<String> getLore(JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Puffiness: " + ChatColor.WHITE + json.get("puffState").getAsInt());
+        lore.add(ChatColor.GRAY + "膨胀等级: " + ChatColor.WHITE + HumanizeUtil.getPuffState(json.get("puffState").getAsInt()));
 
         return lore;
     }

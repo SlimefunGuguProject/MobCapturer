@@ -12,15 +12,18 @@ import com.google.gson.JsonObject;
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
+import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+
 public class TropicalFishAdapter implements MobAdapter<TropicalFish> {
 
     @Override
     public List<String> getLore(JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Base Color: " + ChatColor.WHITE + ChatUtils.humanize(json.get("baseColor").getAsString()));
-        lore.add(ChatColor.GRAY + "Pattern: " + ChatColor.WHITE + ChatUtils.humanize(json.get("pattern").getAsString()));
-        lore.add(ChatColor.GRAY + "Pattern Color: " + ChatColor.WHITE + ChatUtils.humanize(json.get("patternColor").getAsString()));
+        String pattern = json.get("pattern").getAsString();
+        lore.add(ChatColor.GRAY + "基础颜色: " + ChatColor.WHITE + HumanizeUtil.getSheepColor(json.get("baseColor").getAsString()));
+        lore.add(ChatColor.GRAY + "条纹类型: " + ChatColor.WHITE + HumanizeUtil.getTropicalFishPattern(pattern) + "(" + ChatUtils.humanize(pattern) + ")");
+        lore.add(ChatColor.GRAY + "条纹颜色: " + ChatColor.WHITE + HumanizeUtil.getSheepColor(json.get("patternColor").getAsString()));
 
         return lore;
     }

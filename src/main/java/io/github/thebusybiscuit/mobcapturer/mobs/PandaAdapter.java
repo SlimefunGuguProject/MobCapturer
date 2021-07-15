@@ -8,7 +8,7 @@ import org.bukkit.entity.Panda.Gene;
 
 import com.google.gson.JsonObject;
 
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
 
 public class PandaAdapter extends AnimalsAdapter<Panda> {
 
@@ -20,8 +20,8 @@ public class PandaAdapter extends AnimalsAdapter<Panda> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Main Gene: " + ChatColor.WHITE + ChatUtils.humanize(json.get("mainGene").getAsString()));
-        lore.add(ChatColor.GRAY + "Hidden Gene: " + ChatColor.WHITE + ChatUtils.humanize(json.get("hiddenGene").getAsString()));
+        lore.add(ChatColor.GRAY + "主要基因: " + ChatColor.WHITE + HumanizeUtil.getPandaGene(json.get("mainGene").getAsString()));
+        lore.add(ChatColor.GRAY + "隐藏基因: " + ChatColor.WHITE + HumanizeUtil.getPandaGene(json.get("hiddenGene").getAsString()));
 
         return lore;
     }
