@@ -1,29 +1,29 @@
-# :ghost: MobCapturer
-MobCapturer is a [Slimefun4](https://github.com/Slimefun/Slimefun4/) Addon.<br>
-You need to install Slimefun4 in order for this plugin to work.
+# :ghost: MobCapturer 生物捕捉
 
-MobCapturer is a Slimefun4 Addon that adds a cannon which allows you to capture mobs.<br>
-This Plugin is heavily inspired by the Safari-Nets from the mod [MineFactory Reloaded](https://www.curseforge.com/minecraft/mc-mods/minefactory-reloaded).
+MobCapturer 是一个 [Slimefun4](https://github.com/TheBusyBiscuit/Slimefun4/) 附属插件。<br>
+你必须先安装Slimefun4才能让本插件正常运行。
 
-To capture a Mob, simply craft a Mob Capturing Cannon and some Mob Capturing Pellets.<br>
-Take aim and shoot at any mob.
+MobCapturer 向 Slimefun 新增了一把捕捉枪，可以用来捕捉生物。
+本插件的灵感来源于模组 [MineFactory Reloaded](https://www.curseforge.com/minecraft/mc-mods/minefactory-reloaded) 中的Safari-Nets。
 
-Currently only some mobs are actually compatible with this Plugin.<br>
-But the mobs that do work work extremely well!<br>
-The captured mobs will retain attributes, potion effects, fire ticks, custom names, their health and even entity-specific traits like wool colors and much more.
+要捕捉一个生物，你需要制作一把生物捕捉枪，和一些生物捕捉弹。瞄准生物并发射来捕捉该生物。
 
-## :floppy_disk: Download MobCapturer
-You can download MobCapturer right here: [Development Builds](https://thebusybiscuit.github.io/builds/TheBusyBiscuit/MobCapturer/master/)
+目前只有一部分生物可以被捕捉。
+
+捕捉的生物会保留它们的属性、药水效果、着火时间、自定义名称、血量，甚至是部分生物的特性(比如羊毛颜色)。
+
+## :floppy_disk: 下载 MobCapturer
+你可以在这里下载 MobCapturer: [点此下载](https://github.com/ybw0014/MobCapturer-CN/actions/workflows/maven.yml)
 
 <p align="center">
-  <a href="https://thebusybiscuit.github.io/builds/TheBusyBiscuit/MobCapturer/master/">
-    <img src="https://thebusybiscuit.github.io/builds/TheBusyBiscuit/MobCapturer/master/badge.svg" alt="Build Server"/>
+  <a href="https://github.com/ybw0014/MobCapturer-CN/actions/workflows/maven.yml">
+    <img src="https://github.com/ybw0014/MobCapturer-CN/actions/workflows/maven.yml/badge.svg" alt="Build Server"/>
   </a>
 </p>
 
-## :headphones: Discord Server
-You can find Slimefun's community on Discord and connect with thousands of other members from the community.<br>
-The Slimefun Addon Community also has its own discord server for any of our projects too!
+## :headphones: Discord 服务器
+你可以在 Discord 上找到 Slimefun 社区!
+点击下方加入服务器，提出建议、问题或参与其他有关本插件的讨论。
 
 <p align="center">
   <a href="https://discord.gg/slimefun">
@@ -34,6 +34,8 @@ The Slimefun Addon Community also has its own discord server for any of our proj
   </a>
 </p>
 
-## :balance_scale: Open Source / License
-This Project is open-source and licensed under the [MIT License](https://github.com/Slimefun-Addon-Community/MobCapturer/blob/master/LICENSE)<br>
-Pull Requests are welcome!
+## :balance_scale: 开源许可证
+
+本项目以[MIT许可证](/LICENSE)开源。
+
+欢迎提交 Pull Requests!
