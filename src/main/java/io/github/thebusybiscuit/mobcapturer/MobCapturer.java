@@ -90,20 +90,19 @@ import io.github.thebusybiscuit.mobcapturer.mobs.ZoglinAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ZombieAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ZombieVillagerAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ZombifiedPiglinAdapter;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.api.researches.Research;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
-import io.github.thebusybiscuit.slimefun4.core.categories.MultiCategory;
-import io.github.thebusybiscuit.slimefun4.core.categories.SubCategory;
-import io.github.thebusybiscuit.slimefun4.core.researching.Research;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.cscorelib2.config.Config;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
-import me.mrCookieSlime.Slimefun.cscorelib2.skull.SkullItem;
-import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerSkin;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 
 public class MobCapturer extends JavaPlugin implements SlimefunAddon {
 
@@ -112,9 +111,7 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
 
     private final Map<EntityType, MobEgg<?>> adapters = new EnumMap<>(EntityType.class);
 
-    private MultiCategory multiCategory;
-    private Category toolsCategory;
-    private Category eggsCategory;
+    private ItemGroup itemGroup;
     private Research research;
     private RecipeType recipeType;
 
@@ -129,27 +126,25 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
 
         new PelletListener(this);
 
-        multiCategory = new MultiCategory(new NamespacedKey(this, "mob_capturer"),
-                new CustomItem(SkullItem.fromHash("d429ff1d2015cb11398471bb2f895f7b4c3ccec201e4ad7a86ff24b744878c"),
+        itemGroup = new ItemGroup(new NamespacedKey(this, "mob_capturer"),
+                new CustomItemStack(PlayerHead.getItemStack(PlayerSkin.fromHashCode("d429ff1d2015cb11398471bb2f895f7b4c3ccec201e4ad7a86ff24b744878c")),
                         "&d生物捕捉"));
-        toolsCategory = new SubCategory(new NamespacedKey(this, "mob_capturer_tools"), multiCategory, new CustomItem(Material.BLAZE_ROD,"&d生物捕捉 - 工具"));
-        eggsCategory = new SubCategory(new NamespacedKey(this, "mob_capturer_eggs"), multiCategory, new CustomItem(SkullItem.fromHash("d429ff1d2015cb11398471bb2f895f7b4c3ccec201e4ad7a86ff24b744878c"), "&d生物捕捉 - 列表", " ", "&7这里列出了所有可以捕捉的生物"));
         research = new Research(new NamespacedKey(this, "mob_capturing"), 32652, "捕捉生物", 28);
 
         SlimefunItemStack cannon = new SlimefunItemStack("MOB_CANNON", Material.BLAZE_ROD, "&6生物捕捉枪", "", "&e右键点击&7射出一枚&f生物捕捉弹");
         SlimefunItemStack pellet = new SlimefunItemStack("MOB_CAPTURING_PELLET", "983b30e9d135b05190eea2c3ac61e2ab55a2d81e1a58dbb26983a14082664", "&f生物捕捉弹", "", "&7是&6生物捕捉枪&7的弹药");
 
-        MobPellet mobPellet = new MobPellet(toolsCategory, pellet, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] { new ItemStack(Material.STRING), new ItemStack(Material.IRON_NUGGET), new ItemStack(Material.STRING), SlimefunItems.MAGIC_LUMP_2, new ItemStack(Material.EGG), SlimefunItems.MAGIC_LUMP_2, new ItemStack(Material.STRING), new ItemStack(Material.IRON_NUGGET), new ItemStack(Material.STRING) });
+        MobPellet mobPellet = new MobPellet(itemGroup, pellet, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] { new ItemStack(Material.STRING), new ItemStack(Material.IRON_NUGGET), new ItemStack(Material.STRING), SlimefunItems.MAGIC_LUMP_2, new ItemStack(Material.EGG), SlimefunItems.MAGIC_LUMP_2, new ItemStack(Material.STRING), new ItemStack(Material.IRON_NUGGET), new ItemStack(Material.STRING) });
 
         research.addItems(mobPellet);
         mobPellet.register(this);
 
-        MobCannon mobCannon = new MobCannon(this, toolsCategory, cannon, mobPellet, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] { null, SlimefunItems.STEEL_INGOT, SlimefunItems.HOOK, SlimefunItems.STEEL_INGOT, SlimefunItems.POWER_CRYSTAL, SlimefunItems.STEEL_INGOT, SlimefunItems.ADVANCED_CIRCUIT_BOARD, SlimefunItems.STEEL_INGOT, null });
+        MobCannon mobCannon = new MobCannon(this, itemGroup, cannon, mobPellet, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] { null, SlimefunItems.STEEL_INGOT, SlimefunItems.HOOK, SlimefunItems.STEEL_INGOT, SlimefunItems.POWER_CRYSTAL, SlimefunItems.STEEL_INGOT, SlimefunItems.ADVANCED_CIRCUIT_BOARD, SlimefunItems.STEEL_INGOT, null });
 
         research.addItems(mobCannon);
         mobCannon.register(this);
 
-        recipeType = new RecipeType(new NamespacedKey(this, "mob_capturing"), new CustomItem(cannon, "&6生物捕捉枪", "&7使用&6生物捕捉枪&7捕获此生物"));
+        recipeType = new RecipeType(new NamespacedKey(this, "mob_capturing"), new CustomItemStack(cannon, "&6生物捕捉枪", "&7使用&6生物捕捉枪&7捕获此生物"));
 
         register("牛", EntityType.COW, new AnimalsAdapter<>(Cow.class), "9419f15ff54dae5d040f9b9d8eb2a8989e676710922a0ca164da613ca61e9");
         register("鸡", EntityType.CHICKEN, new AnimalsAdapter<>(Chicken.class), "d429ff1d2015cb11398471bb2f895f7b4c3ccec201e4ad7a86ff24b744878c");
@@ -189,7 +184,7 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
         register("岩浆怪", EntityType.MAGMA_CUBE, new SlimeAdapter<>(MagmaCube.class), "1185657c38acdd8f95e1d2cd1115bb0f11139ad2b3ce442267e69706d916e");
         register("恶魂", EntityType.GHAST, new StandardMobAdapter<>(Ghast.class), "c442c228f099fdfc1c6b46dfc80b252d81f7fb1739deb16ee7a597c17f7c9");
         // 1.16 update
-        if (SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_16)) {
+        if (Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_16)) {
             register("猪灵", EntityType.PIGLIN, new PiglinAdapter(), "f2f621045771323d916c26bfb5ebec5738dbff8301246fe1481e9f9d25326f3b");
             register("猪灵蛮兵", EntityType.PIGLIN_BRUTE, new PiglinBruteAdapter(), "b13a4d678041dff776fffd96486e90f1b5e115af33647454caf401fd3fd00d5e");
             register("僵尸猪灵", EntityType.ZOMBIFIED_PIGLIN, new ZombifiedPiglinAdapter(), "4db2e40571acefdcb7f15f94e1f174c3b9c299921f14da052628a0ba18e0c323");
@@ -247,7 +242,7 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
     public <T extends LivingEntity> void register(String name, EntityType type, MobAdapter<T> adapter, String eggTexture) {
         SlimefunItemStack itemstack = new SlimefunItemStack("MOB_EGG_" + type.toString(), eggTexture, "&a刷怪蛋 &7(" + name + ")", "", "&7对着方块右键点击此物品", "&7即可释放捕捉的生物");
 
-        MobEgg<T> egg = new MobEgg<>(eggsCategory, itemstack, dataKey, inventoryKey, adapter, recipeType, new ItemStack[] { null, null, null, null, new CustomItem(SkullItem.fromHash(eggTexture), ChatColor.WHITE + name), null, null, null, null });
+        MobEgg<T> egg = new MobEgg<>(itemGroup, itemstack, dataKey, inventoryKey, adapter, recipeType, new ItemStack[] { null, null, null, null, new CustomItemStack(PlayerHead.getItemStack(PlayerSkin.fromHashCode(eggTexture)), ChatColor.WHITE + name), null, null, null, null });
 
         egg.register(this);
 

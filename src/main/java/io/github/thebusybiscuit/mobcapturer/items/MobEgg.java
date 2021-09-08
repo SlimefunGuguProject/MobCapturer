@@ -23,17 +23,15 @@ import com.google.gson.JsonObject;
 
 import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
-import me.mrCookieSlime.Slimefun.cscorelib2.protection.ProtectableAction;
-
-import javax.annotation.Nonnull;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 
 public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable {
 
@@ -41,8 +39,8 @@ public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHa
     private final NamespacedKey inventoryKey;
     private final MobAdapter<T> adapter;
 
-    public MobEgg(Category category, SlimefunItemStack item, NamespacedKey dataKey, NamespacedKey inventoryKey, MobAdapter<T> adapter, RecipeType recipeType, ItemStack[] recipe) {
-        super(category, item, recipeType, recipe);
+    public MobEgg(ItemGroup itemGroup, SlimefunItemStack item, NamespacedKey dataKey, NamespacedKey inventoryKey, MobAdapter<T> adapter, RecipeType recipeType, ItemStack[] recipe) {
+        super(itemGroup, item, recipeType, recipe);
 
         this.dataKey = dataKey;
         this.inventoryKey = inventoryKey;
@@ -120,7 +118,7 @@ public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHa
     }
 
     protected boolean canPlaceMob(Player p, Location l) {
-        return SlimefunPlugin.getProtectionManager().hasPermission(p, l, ProtectableAction.PLACE_BLOCK);
+        return Slimefun.getProtectionManager().hasPermission(p, l, Interaction.PLACE_BLOCK);
     }
 
 }

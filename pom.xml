@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.thebusybiscuit</groupId>
     <artifactId>MobCapturer</artifactId>
-    <version>UNOFFICIAL</version>
+    <version>DEV-16-zh_CN</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -29,7 +29,7 @@
     </repositories>
 
     <build>
-        <finalName>${project.name} v${project.version}</finalName>
+        <finalName>${project.name}-${project.version}</finalName>
         <defaultGoal>clean package</defaultGoal>
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
 
@@ -93,16 +93,20 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.4-R0.1-SNAPSHOT</version>
+            <version>1.17.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.github.slimefun</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-25</version>
+            <version>RC-27</version>
             <scope>provided</scope>
             <exclusions>
+                <exclusion>
+                    <groupId>io.github.baked-libs</groupId>
+                    <artifactId>dough-api</artifactId>
+                </exclusion>
                 <exclusion>
                     <groupId>org.bstats</groupId>
                     <artifactId>bstats-bukkit</artifactId>
