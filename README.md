@@ -13,11 +13,15 @@ MobCapturer 向 Slimefun 新增了一把捕捉枪，可以用来捕捉生物。
 捕捉的生物会保留它们的属性、药水效果、着火时间、自定义名称、血量，甚至是部分生物的特性(比如羊毛颜色)。
 
 ## :floppy_disk: 下载 MobCapturer
-你可以在这里下载 MobCapturer: [点此下载](https://github.com/ybw0014/MobCapturer-CN/actions/workflows/maven.yml)
+你可以在这里下载 MobCapturer: [点此下载](https://github.com/ybw0014/MobCapturer-CN/actions/workflows/build.yml)
 
 <p align="center">
   <a href="https://github.com/ybw0014/MobCapturer-CN/actions/workflows/maven.yml">
-    <img src="https://github.com/ybw0014/MobCapturer-CN/actions/workflows/maven.yml/badge.svg" alt="Build Server"/>
+    <img src="https://github.com/ybw0014/MobCapturer-CN/actions/workflows/maven.yml/badge.svg" alt="Java CI"/>
+  </a>
+
+  <a href="https://github.com/ybw0014/MobCapturer-CN/actions/workflows/build.yml">
+    <img src="https://github.com/ybw0014/MobCapturer-CN/actions/workflows/build.yml/badge.svg" alt="Auto Build"/>
   </a>
 </p>
 

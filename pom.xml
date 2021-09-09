@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.thebusybiscuit</groupId>
     <artifactId>MobCapturer</artifactId>
-    <version>DEV-16-zh_CN</version>
+    <version>DEV-17-zh_CN</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
