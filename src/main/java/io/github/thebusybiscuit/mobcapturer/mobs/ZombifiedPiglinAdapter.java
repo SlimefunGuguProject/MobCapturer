@@ -1,8 +1,7 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import org.bukkit.entity.PigZombie;
-
 import com.google.gson.JsonObject;
+import org.bukkit.entity.PigZombie;
 
 public class ZombifiedPiglinAdapter extends AbstractHumanoidAdapter<PigZombie> {
 

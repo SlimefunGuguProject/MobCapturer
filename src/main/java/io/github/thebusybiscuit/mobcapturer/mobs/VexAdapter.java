@@ -1,15 +1,12 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+import net.guizhanss.minecraft.chineselib.language.Boolean;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Vex;
 
-import com.google.gson.JsonObject;
-
-import io.github.thebusybiscuit.mobcapturer.MobAdapter;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import java.util.List;
 
 public class VexAdapter implements MobAdapter<Vex> {
 
@@ -17,7 +14,7 @@ public class VexAdapter implements MobAdapter<Vex> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "冲锋状态: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("charging").getAsBoolean()));
+        lore.add(ChatColor.GRAY + "冲锋状态: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("charging").getAsBoolean()));
 
         return lore;
     }

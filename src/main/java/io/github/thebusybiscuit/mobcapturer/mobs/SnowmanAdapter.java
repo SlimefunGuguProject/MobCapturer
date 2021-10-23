@@ -1,10 +1,8 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import org.bukkit.entity.Snowman;
-
 import com.google.gson.JsonObject;
-
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+import org.bukkit.entity.Snowman;
 
 public class SnowmanAdapter implements MobAdapter<Snowman> {
 

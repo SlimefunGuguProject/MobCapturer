@@ -1,11 +1,10 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Pig;
 
-import com.google.gson.JsonObject;
+import java.util.List;
 
 public class PigAdapter extends AnimalsAdapter<Pig> {
 

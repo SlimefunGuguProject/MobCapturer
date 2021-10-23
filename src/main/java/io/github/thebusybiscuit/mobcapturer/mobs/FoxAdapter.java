@@ -1,11 +1,10 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-import java.util.UUID;
-import java.util.HashMap;
-import java.util.Map;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
+import net.guizhanss.minecraft.chineselib.language.Boolean;
+import net.guizhanss.minecraft.chineselib.minecraft.entity.Foxes;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -14,11 +13,10 @@ import org.bukkit.entity.Fox.Type;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
-import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class FoxAdapter extends AnimalsAdapter<Fox> implements InventoryAdapter<Fox> {
 
@@ -30,13 +28,13 @@ public class FoxAdapter extends AnimalsAdapter<Fox> implements InventoryAdapter<
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + HumanizeUtil.getFoxType(json.get("foxType").getAsString()));
+        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + Foxes.Type.fromEnglish(json.get("foxType").getAsString()));
         if (json.get("crouching").getAsBoolean()){
-            lore.add(ChatColor.GRAY + "潜行中: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("crouching").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "潜行中: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("crouching").getAsBoolean()));
         } else if (json.get("sitting").getAsBoolean()) {
-            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("sitting").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("sitting").getAsBoolean()));
         } else if (json.get("sleeping").getAsBoolean()) {
-            lore.add(ChatColor.GRAY + "睡觉中: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("sleeping").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "睡觉中: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("sleeping").getAsBoolean()));
         }
 
 

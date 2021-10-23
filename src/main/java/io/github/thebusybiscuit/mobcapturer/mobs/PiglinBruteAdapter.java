@@ -1,13 +1,11 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
+import com.google.gson.JsonObject;
+import net.guizhanss.minecraft.chineselib.language.Boolean;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.PiglinBrute;
 
-import com.google.gson.JsonObject;
-
 import java.util.List;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
 
 public class PiglinBruteAdapter extends AbstractHumanoidAdapter<PiglinBrute> {
 
@@ -19,7 +17,7 @@ public class PiglinBruteAdapter extends AbstractHumanoidAdapter<PiglinBrute> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "幼年: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("baby").getAsBoolean()));
+        lore.add(ChatColor.GRAY + "幼年: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("baby").getAsBoolean()));
 
         return lore;
     }

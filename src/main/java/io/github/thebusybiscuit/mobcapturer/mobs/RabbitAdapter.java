@@ -1,14 +1,12 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import net.guizhanss.minecraft.chineselib.minecraft.entity.Rabbits;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Rabbit;
 import org.bukkit.entity.Rabbit.Type;
 
-import com.google.gson.JsonObject;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import java.util.List;
 
 public class RabbitAdapter extends AnimalsAdapter<Rabbit> {
 
@@ -20,7 +18,7 @@ public class RabbitAdapter extends AnimalsAdapter<Rabbit> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HumanizeUtil.getRabbitType(json.get("rabbitType").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + Rabbits.Type.fromEnglish(json.get("rabbitType").getAsString()));
 
         return lore;
     }

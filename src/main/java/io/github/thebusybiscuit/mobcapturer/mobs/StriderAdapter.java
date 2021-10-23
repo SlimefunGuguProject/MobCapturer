@@ -1,8 +1,7 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import org.bukkit.entity.Strider;
-
 import com.google.gson.JsonObject;
+import org.bukkit.entity.Strider;
 
 public class StriderAdapter extends AnimalsAdapter<Strider> {
 

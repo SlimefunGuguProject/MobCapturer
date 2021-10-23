@@ -1,13 +1,11 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Slime;
 
-import com.google.gson.JsonObject;
-
-import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+import java.util.List;
 
 public class SlimeAdapter<T extends Slime> implements MobAdapter<T> {
 

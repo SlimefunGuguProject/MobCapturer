@@ -1,10 +1,8 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import org.bukkit.entity.Endermite;
-
 import com.google.gson.JsonObject;
-
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+import org.bukkit.entity.Endermite;
 
 public class EndermiteAdapter implements MobAdapter<Endermite> {
 

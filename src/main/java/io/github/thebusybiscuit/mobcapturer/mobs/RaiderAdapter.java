@@ -1,8 +1,7 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import org.bukkit.entity.Raider;
-
 import com.google.gson.JsonObject;
+import org.bukkit.entity.Raider;
 
 public class RaiderAdapter<T extends Raider> extends AbstractHumanoidAdapter<T> {
 

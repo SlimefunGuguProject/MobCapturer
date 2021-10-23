@@ -1,16 +1,15 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-import java.util.UUID;
-
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Animals;
 import org.bukkit.entity.Tameable;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.List;
+import java.util.UUID;
 
 class AbstractTameableAdapter<T extends Animals & Tameable> extends AnimalsAdapter<T> {
 

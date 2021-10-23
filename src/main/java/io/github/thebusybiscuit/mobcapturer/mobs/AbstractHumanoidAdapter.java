@@ -1,17 +1,15 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
+import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 import org.bukkit.entity.Monster;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
-import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
-import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+import java.util.HashMap;
+import java.util.Map;
 
 class AbstractHumanoidAdapter<T extends Monster> implements MobAdapter<T>, InventoryAdapter<T> {
 

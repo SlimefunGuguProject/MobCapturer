@@ -1,13 +1,11 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import net.guizhanss.minecraft.chineselib.language.Boolean;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Zombie;
 
-import com.google.gson.JsonObject;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import java.util.List;
 
 public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> {
 
@@ -19,7 +17,7 @@ public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> 
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "幼年: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("baby").getAsBoolean()));
+        lore.add(ChatColor.GRAY + "幼年: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("baby").getAsBoolean()));
 
         return lore;
     }

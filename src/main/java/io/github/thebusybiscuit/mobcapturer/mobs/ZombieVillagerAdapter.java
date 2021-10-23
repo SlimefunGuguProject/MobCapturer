@@ -1,17 +1,15 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-import java.util.UUID;
-
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import net.guizhanss.minecraft.chineselib.minecraft.entity.Villagers;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Villager.Profession;
 import org.bukkit.entity.ZombieVillager;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import java.util.List;
+import java.util.UUID;
 
 public class ZombieVillagerAdapter extends ZombieAdapter<ZombieVillager> {
 
@@ -23,7 +21,7 @@ public class ZombieVillagerAdapter extends ZombieAdapter<ZombieVillager> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "职业: " + ChatColor.WHITE + HumanizeUtil.getVillagerProfession(json.get("profession").getAsString()));
+        lore.add(ChatColor.GRAY + "职业: " + ChatColor.WHITE + Villagers.Profession.fromEnglish(json.get("profession").getAsString()));
 
         return lore;
     }

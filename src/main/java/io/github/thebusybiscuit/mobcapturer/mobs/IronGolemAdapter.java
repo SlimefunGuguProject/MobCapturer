@@ -1,10 +1,8 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import org.bukkit.entity.IronGolem;
-
 import com.google.gson.JsonObject;
-
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+import org.bukkit.entity.IronGolem;
 
 public class IronGolemAdapter implements MobAdapter<IronGolem> {
 

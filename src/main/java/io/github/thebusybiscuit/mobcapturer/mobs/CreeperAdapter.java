@@ -1,15 +1,12 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+import net.guizhanss.minecraft.chineselib.language.Boolean;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Creeper;
 
-import com.google.gson.JsonObject;
-
-import io.github.thebusybiscuit.mobcapturer.MobAdapter;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import java.util.List;
 
 public class CreeperAdapter implements MobAdapter<Creeper> {
 
@@ -17,7 +14,7 @@ public class CreeperAdapter implements MobAdapter<Creeper> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "闪电: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("powered").getAsBoolean()));
+        lore.add(ChatColor.GRAY + "闪电: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("powered").getAsBoolean()));
 
         return lore;
     }

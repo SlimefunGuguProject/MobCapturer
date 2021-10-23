@@ -1,8 +1,7 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import org.bukkit.entity.Bee;
-
 import com.google.gson.JsonObject;
+import org.bukkit.entity.Bee;
 
 public class BeeAdapter extends AnimalsAdapter<Bee> {
 

@@ -1,17 +1,15 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-import java.util.Map;
-
+import com.google.gson.JsonObject;
+import net.guizhanss.minecraft.chineselib.minecraft.entity.Horses;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Horse.Color;
 import org.bukkit.entity.Horse.Style;
 import org.bukkit.inventory.ItemStack;
 
-import com.google.gson.JsonObject;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import java.util.List;
+import java.util.Map;
 
 public class HorseAdapter extends AbstractHorseAdapter<Horse> {
 
@@ -23,8 +21,8 @@ public class HorseAdapter extends AbstractHorseAdapter<Horse> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "类型: " + ChatColor.WHITE + HumanizeUtil.getHorseStyle(json.get("style").getAsString()));
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HumanizeUtil.getHorseColor(json.get("color").getAsString()));
+        lore.add(ChatColor.GRAY + "样式: " + ChatColor.WHITE + Horses.Style.fromEnglish(json.get("style").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + Horses.Color.fromEnglish(json.get("color").getAsString()));
 
         return lore;
     }

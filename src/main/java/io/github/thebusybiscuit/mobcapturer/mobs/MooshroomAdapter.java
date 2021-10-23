@@ -1,14 +1,13 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import net.guizhanss.minecraft.chineselib.minecraft.DyeColors;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.MushroomCow;
 import org.bukkit.entity.MushroomCow.Variant;
 
-import com.google.gson.JsonObject;
+import java.util.List;
 
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
 
 public class MooshroomAdapter extends AnimalsAdapter<MushroomCow> {
 
@@ -20,7 +19,7 @@ public class MooshroomAdapter extends AnimalsAdapter<MushroomCow> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HumanizeUtil.getSheepColor(json.get("variant").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + DyeColors.fromEnglish(json.get("variant").getAsString()));
 
         return lore;
     }

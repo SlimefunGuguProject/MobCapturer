@@ -1,14 +1,12 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import net.guizhanss.minecraft.chineselib.minecraft.entity.Horses;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Llama;
 import org.bukkit.entity.Llama.Color;
 
-import com.google.gson.JsonObject;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import java.util.List;
 
 public class LlamaAdapter<T extends Llama> extends ChestedHorseAdapter<T> {
 
@@ -20,7 +18,7 @@ public class LlamaAdapter<T extends Llama> extends ChestedHorseAdapter<T> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HumanizeUtil.getHorseColor(json.get("color").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + Horses.Color.fromEnglish(json.get("color").getAsString()));
 
         return lore;
     }

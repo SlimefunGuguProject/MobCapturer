@@ -1,14 +1,13 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import net.guizhanss.minecraft.chineselib.language.Boolean;
+import net.guizhanss.minecraft.chineselib.minecraft.DyeColors;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Parrot;
 import org.bukkit.entity.Parrot.Variant;
 
-import com.google.gson.JsonObject;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import java.util.List;
 
 public class ParrotAdapter extends AbstractTameableAdapter<Parrot> {
 
@@ -20,10 +19,10 @@ public class ParrotAdapter extends AbstractTameableAdapter<Parrot> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HumanizeUtil.getSheepColor(json.get("variant").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + DyeColors.fromEnglish(json.get("variant").getAsString()));
 
         if (!json.get("ownerUUID").isJsonNull()) {
-            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("sitting").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("sitting").getAsBoolean()));
         }
 
         return lore;

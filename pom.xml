@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.thebusybiscuit</groupId>
     <artifactId>MobCapturer</artifactId>
-    <version>DEV-17-zh_CN</version>
+    <version>UNOFFICIAL</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -113,16 +113,25 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>2.1.0</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
             <version>2.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ybw0014</groupId>
+            <artifactId>ChineseLib</artifactId>
+            <version>0.1.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

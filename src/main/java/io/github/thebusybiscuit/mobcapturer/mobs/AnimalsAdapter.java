@@ -1,15 +1,12 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+import net.guizhanss.minecraft.chineselib.language.Boolean;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Animals;
 
-import com.google.gson.JsonObject;
-
-import io.github.thebusybiscuit.mobcapturer.MobAdapter;
-
-import net.guizhanss.minecraft.mobcapturer.utils.HumanizeUtil;
+import java.util.List;
 
 public class AnimalsAdapter<T extends Animals> implements MobAdapter<T> {
 
@@ -23,7 +20,7 @@ public class AnimalsAdapter<T extends Animals> implements MobAdapter<T> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "幼年: " + ChatColor.WHITE + HumanizeUtil.getBoolean(json.get("baby").getAsBoolean()));
+        lore.add(ChatColor.GRAY + "幼年: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("baby").getAsBoolean()));
 
         return lore;
     }

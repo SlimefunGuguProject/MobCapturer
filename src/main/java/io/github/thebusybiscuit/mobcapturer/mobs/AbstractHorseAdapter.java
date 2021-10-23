@@ -1,17 +1,15 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.google.gson.JsonObject;
+import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
+import io.github.thebusybiscuit.slimefun4.utils.NumberUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.AbstractHorse;
 import org.bukkit.inventory.ItemStack;
 
-import com.google.gson.JsonObject;
-
-import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
-import io.github.thebusybiscuit.slimefun4.utils.NumberUtils;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 class AbstractHorseAdapter<T extends AbstractHorse> extends AbstractTameableAdapter<T> implements InventoryAdapter<T> {
 

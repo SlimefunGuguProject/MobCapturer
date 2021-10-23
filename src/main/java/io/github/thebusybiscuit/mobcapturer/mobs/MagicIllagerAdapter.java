@@ -1,14 +1,12 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import java.util.List;
-
+import com.google.gson.JsonObject;
+import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Spellcaster;
 import org.bukkit.entity.Spellcaster.Spell;
 
-import com.google.gson.JsonObject;
-
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+import java.util.List;
 
 public class MagicIllagerAdapter<T extends Spellcaster> extends RaiderAdapter<T> {
 
