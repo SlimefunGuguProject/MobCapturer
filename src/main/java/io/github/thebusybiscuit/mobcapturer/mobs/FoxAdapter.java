@@ -3,8 +3,8 @@ package io.github.thebusybiscuit.mobcapturer.mobs;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
-import net.guizhanss.minecraft.chineselib.language.Boolean;
-import net.guizhanss.minecraft.chineselib.minecraft.entity.Foxes;
+import net.guizhanss.guizhanlib.language.BooleanHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.entity.FoxHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -28,13 +28,13 @@ public class FoxAdapter extends AnimalsAdapter<Fox> implements InventoryAdapter<
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + Foxes.Type.fromEnglish(json.get("foxType").getAsString()));
+        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + FoxHelper.getType(json.get("foxType").getAsString()));
         if (json.get("crouching").getAsBoolean()){
-            lore.add(ChatColor.GRAY + "潜行中: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("crouching").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "潜行中: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("crouching").getAsBoolean()));
         } else if (json.get("sitting").getAsBoolean()) {
-            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("sitting").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("sitting").getAsBoolean()));
         } else if (json.get("sleeping").getAsBoolean()) {
-            lore.add(ChatColor.GRAY + "睡觉中: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("sleeping").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "睡觉中: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("sleeping").getAsBoolean()));
         }
 
 

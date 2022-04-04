@@ -2,7 +2,7 @@ package io.github.thebusybiscuit.mobcapturer.mobs;
 
 import com.google.gson.JsonObject;
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
-import net.guizhanss.minecraft.chineselib.minecraft.entity.PufferFishes;
+import net.guizhanss.guizhanlib.minecraft.helper.entity.PufferFishHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.PufferFish;
 
@@ -14,7 +14,7 @@ public class PufferFishAdapter implements MobAdapter<PufferFish> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "膨胀等级: " + ChatColor.WHITE + PufferFishes.getPuffState(json.get("puffState").getAsInt()));
+        lore.add(ChatColor.GRAY + "膨胀等级: " + ChatColor.WHITE + PufferFishHelper.getPuffState(json.get("puffState").getAsInt()));
 
         return lore;
     }

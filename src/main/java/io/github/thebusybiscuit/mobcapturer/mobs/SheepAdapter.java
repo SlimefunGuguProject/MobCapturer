@@ -1,7 +1,7 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
 import com.google.gson.JsonObject;
-import net.guizhanss.minecraft.chineselib.minecraft.DyeColors;
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Sheep;
@@ -18,7 +18,7 @@ public class SheepAdapter extends AnimalsAdapter<Sheep> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + DyeColors.fromEnglish(json.get("woolColor").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + DyeColorHelper.getName(json.get("woolColor").getAsString()));
 
         return lore;
     }

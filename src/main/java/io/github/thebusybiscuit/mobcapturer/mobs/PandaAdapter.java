@@ -1,7 +1,7 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
 import com.google.gson.JsonObject;
-import net.guizhanss.minecraft.chineselib.minecraft.entity.Pandas;
+import net.guizhanss.guizhanlib.minecraft.helper.entity.PandaHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Panda;
 import org.bukkit.entity.Panda.Gene;
@@ -18,8 +18,8 @@ public class PandaAdapter extends AnimalsAdapter<Panda> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "主要基因: " + ChatColor.WHITE + Pandas.Gene.fromEnglish(json.get("mainGene").getAsString()));
-        lore.add(ChatColor.GRAY + "隐藏基因: " + ChatColor.WHITE + Pandas.Gene.fromEnglish(json.get("hiddenGene").getAsString()));
+        lore.add(ChatColor.GRAY + "主要基因: " + ChatColor.WHITE + PandaHelper.getGene(json.get("mainGene").getAsString()));
+        lore.add(ChatColor.GRAY + "隐藏基因: " + ChatColor.WHITE + PandaHelper.getGene(json.get("hiddenGene").getAsString()));
 
         return lore;
     }

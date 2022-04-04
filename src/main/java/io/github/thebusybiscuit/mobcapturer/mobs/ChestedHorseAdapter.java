@@ -1,7 +1,7 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
 import com.google.gson.JsonObject;
-import net.guizhanss.minecraft.chineselib.language.Boolean;
+import net.guizhanss.guizhanlib.language.BooleanHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.ChestedHorse;
 import org.bukkit.inventory.ItemStack;
@@ -20,7 +20,7 @@ public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAd
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "携带箱子: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("chest").getAsBoolean()));
+        lore.add(ChatColor.GRAY + "携带箱子: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("chest").getAsBoolean()));
 
         return lore;
     }

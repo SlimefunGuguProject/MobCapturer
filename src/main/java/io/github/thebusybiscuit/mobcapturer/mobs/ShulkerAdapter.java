@@ -3,7 +3,7 @@ package io.github.thebusybiscuit.mobcapturer.mobs;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
-import net.guizhanss.minecraft.chineselib.minecraft.DyeColors;
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Shulker;
@@ -19,7 +19,7 @@ public class ShulkerAdapter implements MobAdapter<Shulker> {
         JsonElement color = json.get("color");
 
         if (!color.isJsonNull()) {
-            lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + DyeColors.fromEnglish(color.getAsString()));
+            lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + DyeColorHelper.getName(color.getAsString()));
         }
 
         return lore;

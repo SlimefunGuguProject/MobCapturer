@@ -102,7 +102,8 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerSkin;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 
 public class MobCapturer extends JavaPlugin implements SlimefunAddon {
 
@@ -120,8 +121,8 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
         Config cfg = new Config(this);
         new Metrics(this, 6672);
 
-        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
-            new GitHubBuildsUpdater(this, getFile(), "ybw00014/MobCapturer/master").start();
+        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build ")) {
+            new GuizhanBuildsUpdater(this, getFile(), "ybw0014", "MobCapturer-CN", "master", false).start();
         }
 
         new PelletListener(this);

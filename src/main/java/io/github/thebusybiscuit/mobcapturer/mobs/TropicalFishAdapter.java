@@ -3,8 +3,8 @@ package io.github.thebusybiscuit.mobcapturer.mobs;
 import com.google.gson.JsonObject;
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
-import net.guizhanss.minecraft.chineselib.minecraft.DyeColors;
-import net.guizhanss.minecraft.chineselib.minecraft.entity.TropicalFishes;
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.entity.TropicalFishHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.TropicalFish;
@@ -19,9 +19,9 @@ public class TropicalFishAdapter implements MobAdapter<TropicalFish> {
         List<String> lore = MobAdapter.super.getLore(json);
 
         String pattern = json.get("pattern").getAsString();
-        lore.add(ChatColor.GRAY + "基础颜色: " + ChatColor.WHITE + DyeColors.fromEnglish(json.get("baseColor").getAsString()));
-        lore.add(ChatColor.GRAY + "条纹类型: " + ChatColor.WHITE + TropicalFishes.Pattern.fromEnglish(pattern) + "(" + ChatUtils.humanize(pattern) + ")");
-        lore.add(ChatColor.GRAY + "条纹颜色: " + ChatColor.WHITE + DyeColors.fromEnglish(json.get("patternColor").getAsString()));
+        lore.add(ChatColor.GRAY + "基础颜色: " + ChatColor.WHITE + DyeColorHelper.getName(json.get("baseColor").getAsString()));
+        lore.add(ChatColor.GRAY + "条纹类型: " + ChatColor.WHITE + TropicalFishHelper.getPatternName(Pattern.valueOf(pattern)));
+        lore.add(ChatColor.GRAY + "条纹颜色: " + ChatColor.WHITE + DyeColorHelper.getName(json.get("patternColor").getAsString()));
 
         return lore;
     }

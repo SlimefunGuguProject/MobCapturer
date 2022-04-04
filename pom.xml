@@ -65,8 +65,8 @@
                             <shadedPattern>io.github.thebusybiscuit.mobcapturer.bstats</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>net.guizhanss.minecraft.chineselib</pattern>
-                            <shadedPattern>io.github.thebusybiscuit.mobcapturer.chineselib</shadedPattern>
+                            <pattern>net.guizhanss.guizhanlib</pattern>
+                            <shadedPattern>io.github.thebusybiscuit.mobcapturer.guizhanlib</shadedPattern>
                         </relocation>
                     </relocations>
 
@@ -132,9 +132,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.ybw0014</groupId>
-            <artifactId>ChineseLib</artifactId>
-            <version>0.1.0</version>
+            <groupId>net.guizhanss</groupId>
+            <artifactId>GuizhanLib</artifactId>
+            <version>0.8.2</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

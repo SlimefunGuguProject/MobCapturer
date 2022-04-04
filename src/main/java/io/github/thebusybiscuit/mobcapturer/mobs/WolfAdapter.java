@@ -1,8 +1,8 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
 import com.google.gson.JsonObject;
-import net.guizhanss.minecraft.chineselib.language.Boolean;
-import net.guizhanss.minecraft.chineselib.minecraft.DyeColors;
+import net.guizhanss.guizhanlib.language.BooleanHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Wolf;
@@ -20,10 +20,10 @@ public class WolfAdapter extends AbstractTameableAdapter<Wolf> {
         List<String> lore = super.getLore(json);
 
         if (!json.get("ownerUUID").isJsonNull()) {
-            lore.add(ChatColor.GRAY + "项圈颜色: " + ChatColor.WHITE + DyeColors.fromEnglish(json.get("collarColor").getAsString()));
-            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("sitting").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "项圈颜色: " + ChatColor.WHITE + DyeColorHelper.getName(json.get("collarColor").getAsString()));
+            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("sitting").getAsBoolean()));
         } else {
-            lore.add(ChatColor.GRAY + "愤怒: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("angry").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "愤怒: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("angry").getAsBoolean()));
         }
 
         return lore;

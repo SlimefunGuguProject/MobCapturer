@@ -1,9 +1,9 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
 import com.google.gson.JsonObject;
-import net.guizhanss.minecraft.chineselib.language.Boolean;
-import net.guizhanss.minecraft.chineselib.minecraft.DyeColors;
-import net.guizhanss.minecraft.chineselib.minecraft.entity.Cats;
+import net.guizhanss.guizhanlib.language.BooleanHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.entity.CatHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Cat;
@@ -21,11 +21,11 @@ public class CatAdapter extends AbstractTameableAdapter<Cat> {
     public List<String> getLore(JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "类型: " + ChatColor.WHITE + Cats.Type.fromEnglish(json.get("catType").getAsString()));
+        lore.add(ChatColor.GRAY + "类型: " + ChatColor.WHITE + CatHelper.getType(json.get("catType").getAsString()));
 
         if (!json.get("ownerUUID").isJsonNull()) {
-            lore.add(ChatColor.GRAY + "项圈颜色: " + ChatColor.WHITE + DyeColors.fromEnglish(json.get("collarColor").getAsString()));
-            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + Boolean.yesOrNo(json.get("sitting").getAsBoolean()));
+            lore.add(ChatColor.GRAY + "项圈颜色: " + ChatColor.WHITE + DyeColorHelper.getName(json.get("collarColor").getAsString()));
+            lore.add(ChatColor.GRAY + "坐下: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("sitting").getAsBoolean()));
         }
 
         return lore;
