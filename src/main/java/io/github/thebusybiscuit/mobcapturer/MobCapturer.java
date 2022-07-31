@@ -121,8 +121,8 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
         Config cfg = new Config(this);
         new Metrics(this, 6672);
 
-        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build ")) {
-            new GuizhanBuildsUpdater(this, getFile(), "ybw0014", "MobCapturer-CN", "master", false).start();
+        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build")) {
+            new GuizhanBuildsUpdater(this, getFile(), "ybw0014", "MobCapturer-CN", "master", false, "zh-CN").start();
         }
 
         new PelletListener(this);
@@ -255,7 +255,7 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/ybw0014/MobCapturer/issues";
+        return "https://github.com/SlimefunGuguProject/MobCapturer/issues";
     }
 
     @Override

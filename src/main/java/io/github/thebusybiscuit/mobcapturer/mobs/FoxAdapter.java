@@ -3,7 +3,7 @@ package io.github.thebusybiscuit.mobcapturer.mobs;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
-import net.guizhanss.guizhanlib.language.BooleanHelper;
+import net.guizhanss.guizhanlib.java.BooleanHelper;
 import net.guizhanss.guizhanlib.minecraft.helper.entity.FoxHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

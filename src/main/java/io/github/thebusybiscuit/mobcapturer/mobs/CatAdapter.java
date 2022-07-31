@@ -1,7 +1,7 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
 import com.google.gson.JsonObject;
-import net.guizhanss.guizhanlib.language.BooleanHelper;
+import net.guizhanss.guizhanlib.java.BooleanHelper;
 import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
 import net.guizhanss.guizhanlib.minecraft.helper.entity.CatHelper;
 import org.bukkit.ChatColor;
