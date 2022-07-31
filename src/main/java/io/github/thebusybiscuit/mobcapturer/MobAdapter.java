@@ -29,9 +29,9 @@ import io.github.thebusybiscuit.slimefun4.utils.NumberUtils;
 /**
  * This is a simple Adapter that allows conversion between a {@link LivingEntity} and
  * a {@link JsonObject}.
- * 
+ *
  * It also requires the implementation of {@link PersistentDataType}.
- * 
+ *
  * @author TheBusyBiscuit
  *
  */
