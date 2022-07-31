@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import io.github.thebusybiscuit.slimefun4.core.attributes.DistinctiveItem;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
@@ -33,7 +34,9 @@ import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunIte
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 
-public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable {
+import javax.annotation.Nonnull;
+
+public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable, DistinctiveItem {
 
     private final NamespacedKey dataKey;
     private final NamespacedKey inventoryKey;
@@ -121,4 +124,8 @@ public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHa
         return Slimefun.getProtectionManager().hasPermission(p, l, Interaction.PLACE_BLOCK);
     }
 
+    @Override
+    public boolean canStack(@Nonnull ItemMeta itemMeta, @Nonnull ItemMeta sfMeta) {
+        return itemMeta.getPersistentDataContainer().equals(sfMeta.getPersistentDataContainer());
+    }
 }
