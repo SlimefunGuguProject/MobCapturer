@@ -1,15 +1,20 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
+import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.guizhanss.guizhanlib.minecraft.helper.entity.VillagerHelper;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Villager.Profession;
 import org.bukkit.entity.ZombieVillager;
 
-import java.util.List;
-import java.util.UUID;
+import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 public class ZombieVillagerAdapter extends ZombieAdapter<ZombieVillager> {
 
@@ -17,8 +22,9 @@ public class ZombieVillagerAdapter extends ZombieAdapter<ZombieVillager> {
         super(ZombieVillager.class);
     }
 
+    @Nonnull
     @Override
-    public List<String> getLore(JsonObject json) {
+    public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
         lore.add(ChatColor.GRAY + "职业: " + ChatColor.WHITE + VillagerHelper.getProfessionName(Profession.valueOf(json.get("profession").getAsString())));
@@ -26,8 +32,9 @@ public class ZombieVillagerAdapter extends ZombieAdapter<ZombieVillager> {
         return lore;
     }
 
+    @Nonnull
     @Override
-    public JsonObject saveData(ZombieVillager entity) {
+    public JsonObject saveData(@Nonnull ZombieVillager entity) {
         JsonObject json = super.saveData(entity);
 
         json.addProperty("profession", entity.getVillagerProfession().name());
@@ -36,6 +43,7 @@ public class ZombieVillagerAdapter extends ZombieAdapter<ZombieVillager> {
         return json;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void apply(ZombieVillager entity, JsonObject json) {
         super.apply(entity, json);

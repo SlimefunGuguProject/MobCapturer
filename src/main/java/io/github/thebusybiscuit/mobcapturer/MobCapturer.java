@@ -4,6 +4,8 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.annotation.Nonnull;
+
 import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -90,12 +92,12 @@ import io.github.thebusybiscuit.mobcapturer.mobs.ZoglinAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ZombieAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ZombieVillagerAdapter;
 import io.github.thebusybiscuit.mobcapturer.mobs.ZombifiedPiglinAdapter;
+import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
+import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.api.researches.Research;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
@@ -254,17 +256,20 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
     }
 
     @Override
+    @Nonnull
     public String getBugTrackerURL() {
         return "https://github.com/SlimefunGuguProject/MobCapturer/issues";
     }
 
     @Override
+    @Nonnull
     public JavaPlugin getJavaPlugin() {
         return this;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    public Optional<ItemStack> capture(LivingEntity entity) {
+    @Nonnull
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public Optional<ItemStack> capture(@Nonnull LivingEntity entity) {
         MobEgg egg = adapters.get(entity.getType());
 
         if (egg != null) {

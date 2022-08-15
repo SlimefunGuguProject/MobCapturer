@@ -1,23 +1,27 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
-import com.google.gson.JsonObject;
-import net.guizhanss.guizhanlib.java.BooleanHelper;
-import org.bukkit.ChatColor;
-import org.bukkit.entity.ChestedHorse;
-import org.bukkit.inventory.ItemStack;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import com.google.gson.JsonObject;
+
+import org.bukkit.ChatColor;
+import org.bukkit.entity.ChestedHorse;
+import org.bukkit.inventory.ItemStack;
+
 public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAdapter<T> {
 
-    public ChestedHorseAdapter(Class<T> entityClass) {
+    public ChestedHorseAdapter(@Nonnull Class<T> entityClass) {
         super(entityClass);
     }
 
+    @Nonnull
     @Override
-    public List<String> getLore(JsonObject json) {
+    public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
         lore.add(ChatColor.GRAY + "携带箱子: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("chest").getAsBoolean()));
@@ -25,6 +29,7 @@ public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAd
         return lore;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void apply(T entity, JsonObject json) {
         super.apply(entity, json);
@@ -32,8 +37,9 @@ public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAd
         entity.setCarryingChest(json.get("chest").getAsBoolean());
     }
 
+    @Nonnull
     @Override
-    public JsonObject saveData(T entity) {
+    public JsonObject saveData(@Nonnull T entity) {
         JsonObject json = super.saveData(entity);
 
         json.addProperty("chest", entity.isCarryingChest());
@@ -41,8 +47,9 @@ public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAd
         return json;
     }
 
+    @Nonnull
     @Override
-    public Map<String, ItemStack> saveInventory(T entity) {
+    public Map<String, ItemStack> saveInventory(@Nonnull T entity) {
         Map<String, ItemStack> inv = new HashMap<>();
 
         for (int slot = 0; slot < entity.getInventory().getSize(); slot++) {
@@ -52,6 +59,7 @@ public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAd
         return inv;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void applyInventory(T entity, Map<String, ItemStack> inventory) {
         for (Map.Entry<String, ItemStack> entry : inventory.entrySet()) {

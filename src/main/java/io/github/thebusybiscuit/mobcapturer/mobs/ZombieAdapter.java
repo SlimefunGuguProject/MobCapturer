@@ -1,11 +1,14 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
+import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.google.gson.JsonObject;
-import net.guizhanss.guizhanlib.java.BooleanHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Zombie;
-
-import java.util.List;
 
 public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> {
 
@@ -13,8 +16,9 @@ public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> 
         super(entityClass);
     }
 
+    @Nonnull
     @Override
-    public List<String> getLore(JsonObject json) {
+    public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
         lore.add(ChatColor.GRAY + "幼年: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("baby").getAsBoolean()));
@@ -22,8 +26,9 @@ public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> 
         return lore;
     }
 
+    @Nonnull
     @Override
-    public JsonObject saveData(T entity) {
+    public JsonObject saveData(@Nonnull T entity) {
         JsonObject json = super.saveData(entity);
 
         json.addProperty("age", entity.getAge());
@@ -36,6 +41,7 @@ public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> 
         return json;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void apply(T entity, JsonObject json) {
         super.apply(entity, json);

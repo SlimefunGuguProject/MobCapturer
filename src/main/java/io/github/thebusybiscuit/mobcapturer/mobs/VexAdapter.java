@@ -1,17 +1,22 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
+import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.google.gson.JsonObject;
-import io.github.thebusybiscuit.mobcapturer.MobAdapter;
-import net.guizhanss.guizhanlib.java.BooleanHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Vex;
 
-import java.util.List;
+import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 
 public class VexAdapter implements MobAdapter<Vex> {
 
+    @Nonnull
     @Override
-    public List<String> getLore(JsonObject json) {
+    public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
         lore.add(ChatColor.GRAY + "冲锋状态: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("charging").getAsBoolean()));
@@ -19,6 +24,7 @@ public class VexAdapter implements MobAdapter<Vex> {
         return lore;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void apply(Vex entity, JsonObject json) {
         MobAdapter.super.apply(entity, json);
@@ -26,8 +32,9 @@ public class VexAdapter implements MobAdapter<Vex> {
         entity.setCharging(json.get("charging").getAsBoolean());
     }
 
+    @Nonnull
     @Override
-    public JsonObject saveData(Vex entity) {
+    public JsonObject saveData(@Nonnull Vex entity) {
         JsonObject json = MobAdapter.super.saveData(entity);
 
         json.addProperty("charging", entity.isCharging());
@@ -35,6 +42,7 @@ public class VexAdapter implements MobAdapter<Vex> {
         return json;
     }
 
+    @Nonnull
     @Override
     public Class<Vex> getEntityClass() {
         return Vex.class;

@@ -1,12 +1,17 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
+import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.google.gson.JsonObject;
-import net.guizhanss.guizhanlib.minecraft.helper.entity.RabbitHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Rabbit;
 import org.bukkit.entity.Rabbit.Type;
 
-import java.util.List;
+import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 public class RabbitAdapter extends AnimalsAdapter<Rabbit> {
 
@@ -14,8 +19,9 @@ public class RabbitAdapter extends AnimalsAdapter<Rabbit> {
         super(Rabbit.class);
     }
 
+    @Nonnull
     @Override
-    public List<String> getLore(JsonObject json) {
+    public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
         lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + RabbitHelper.getType(json.get("rabbitType").getAsString()));
@@ -23,6 +29,7 @@ public class RabbitAdapter extends AnimalsAdapter<Rabbit> {
         return lore;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void apply(Rabbit entity, JsonObject json) {
         super.apply(entity, json);
@@ -30,8 +37,9 @@ public class RabbitAdapter extends AnimalsAdapter<Rabbit> {
         entity.setRabbitType(Type.valueOf(json.get("rabbitType").getAsString()));
     }
 
+    @Nonnull
     @Override
-    public JsonObject saveData(Rabbit entity) {
+    public JsonObject saveData(@Nonnull Rabbit entity) {
         JsonObject json = super.saveData(entity);
 
         json.addProperty("rabbitType", entity.getRabbitType().name());

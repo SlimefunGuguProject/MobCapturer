@@ -1,15 +1,20 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.google.gson.JsonObject;
-import net.guizhanss.guizhanlib.minecraft.helper.entity.HorseHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Horse.Color;
 import org.bukkit.entity.Horse.Style;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.List;
-import java.util.Map;
+import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 public class HorseAdapter extends AbstractHorseAdapter<Horse> {
 
@@ -17,8 +22,9 @@ public class HorseAdapter extends AbstractHorseAdapter<Horse> {
         super(Horse.class);
     }
 
+    @Nonnull
     @Override
-    public List<String> getLore(JsonObject json) {
+    public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
         lore.add(ChatColor.GRAY + "样式: " + ChatColor.WHITE + HorseHelper.getStyle(json.get("style").getAsString()));
@@ -27,6 +33,7 @@ public class HorseAdapter extends AbstractHorseAdapter<Horse> {
         return lore;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void apply(Horse entity, JsonObject json) {
         super.apply(entity, json);
@@ -35,8 +42,9 @@ public class HorseAdapter extends AbstractHorseAdapter<Horse> {
         entity.setColor(Color.valueOf(json.get("color").getAsString()));
     }
 
+    @Nonnull
     @Override
-    public JsonObject saveData(Horse entity) {
+    public JsonObject saveData(@Nonnull Horse entity) {
         JsonObject json = super.saveData(entity);
 
         json.addProperty("style", entity.getStyle().name());
@@ -45,6 +53,7 @@ public class HorseAdapter extends AbstractHorseAdapter<Horse> {
         return json;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void applyInventory(Horse entity, Map<String, ItemStack> inventory) {
         super.applyInventory(entity, inventory);
@@ -52,8 +61,9 @@ public class HorseAdapter extends AbstractHorseAdapter<Horse> {
         inventory.put("armor", entity.getInventory().getArmor());
     }
 
+    @Nonnull
     @Override
-    public Map<String, ItemStack> saveInventory(Horse entity) {
+    public Map<String, ItemStack> saveInventory(@Nonnull Horse entity) {
         Map<String, ItemStack> inventory = super.saveInventory(entity);
 
         inventory.put("armor", entity.getInventory().getArmor());

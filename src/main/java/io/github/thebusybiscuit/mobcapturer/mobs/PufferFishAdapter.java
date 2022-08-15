@@ -1,17 +1,22 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
+import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.google.gson.JsonObject;
-import io.github.thebusybiscuit.mobcapturer.MobAdapter;
-import net.guizhanss.guizhanlib.minecraft.helper.entity.PufferFishHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.PufferFish;
 
-import java.util.List;
+import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 
 public class PufferFishAdapter implements MobAdapter<PufferFish> {
 
+    @Nonnull
     @Override
-    public List<String> getLore(JsonObject json) {
+    public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
         lore.add(ChatColor.GRAY + "膨胀等级: " + ChatColor.WHITE + PufferFishHelper.getPuffState(json.get("puffState").getAsInt()));
@@ -19,6 +24,7 @@ public class PufferFishAdapter implements MobAdapter<PufferFish> {
         return lore;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void apply(PufferFish entity, JsonObject json) {
         MobAdapter.super.apply(entity, json);
@@ -26,8 +32,9 @@ public class PufferFishAdapter implements MobAdapter<PufferFish> {
         entity.setPuffState(json.get("puffState").getAsInt());
     }
 
+    @Nonnull
     @Override
-    public JsonObject saveData(PufferFish entity) {
+    public JsonObject saveData(@Nonnull PufferFish entity) {
         JsonObject json = MobAdapter.super.saveData(entity);
 
         json.addProperty("puffState", entity.getPuffState());
@@ -35,6 +42,7 @@ public class PufferFishAdapter implements MobAdapter<PufferFish> {
         return json;
     }
 
+    @Nonnull
     @Override
     public Class<PufferFish> getEntityClass() {
         return PufferFish.class;

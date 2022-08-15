@@ -1,11 +1,17 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.google.gson.JsonObject;
-import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+
 import org.bukkit.entity.Snowman;
+
+import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 
 public class SnowmanAdapter implements MobAdapter<Snowman> {
 
+    @ParametersAreNonnullByDefault
     @Override
     public void apply(Snowman entity, JsonObject json) {
         MobAdapter.super.apply(entity, json);
@@ -13,8 +19,9 @@ public class SnowmanAdapter implements MobAdapter<Snowman> {
         entity.setDerp(json.get("derp").getAsBoolean());
     }
 
+    @Nonnull
     @Override
-    public JsonObject saveData(Snowman entity) {
+    public JsonObject saveData(@Nonnull Snowman entity) {
         JsonObject json = MobAdapter.super.saveData(entity);
 
         json.addProperty("derp", entity.isDerp());
@@ -22,6 +29,7 @@ public class SnowmanAdapter implements MobAdapter<Snowman> {
         return json;
     }
 
+    @Nonnull
     @Override
     public Class<Snowman> getEntityClass() {
         return Snowman.class;

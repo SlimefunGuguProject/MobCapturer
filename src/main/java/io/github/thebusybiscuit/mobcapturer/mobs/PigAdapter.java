@@ -1,10 +1,14 @@
 package io.github.thebusybiscuit.mobcapturer.mobs;
 
+import java.util.List;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.google.gson.JsonObject;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Pig;
-
-import java.util.List;
 
 public class PigAdapter extends AnimalsAdapter<Pig> {
 
@@ -12,8 +16,9 @@ public class PigAdapter extends AnimalsAdapter<Pig> {
         super(Pig.class);
     }
 
+    @Nonnull
     @Override
-    public List<String> getLore(JsonObject json) {
+    public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
         if (json.get("saddle").getAsBoolean()) {
@@ -23,6 +28,7 @@ public class PigAdapter extends AnimalsAdapter<Pig> {
         return lore;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void apply(Pig entity, JsonObject json) {
         super.apply(entity, json);
@@ -30,8 +36,9 @@ public class PigAdapter extends AnimalsAdapter<Pig> {
         entity.setSaddle(json.get("saddle").getAsBoolean());
     }
 
+    @Nonnull
     @Override
-    public JsonObject saveData(Pig entity) {
+    public JsonObject saveData(@Nonnull Pig entity) {
         JsonObject json = super.saveData(entity);
 
         json.addProperty("saddle", entity.hasSaddle());
