@@ -8,13 +8,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
+import net.guizhanss.guizhanlib.minecraft.helper.entity.HorseHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Horse;
 import org.bukkit.entity.Horse.Color;
 import org.bukkit.entity.Horse.Style;
 import org.bukkit.inventory.ItemStack;
-
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 public class HorseAdapter extends AbstractHorseAdapter<Horse> {
 

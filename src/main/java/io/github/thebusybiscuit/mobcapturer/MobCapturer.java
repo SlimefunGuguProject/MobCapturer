@@ -6,6 +6,8 @@ import java.util.Optional;
 
 import javax.annotation.Nonnull;
 
+import net.guizhanss.guizhanlibplugin.updater.GuizhanBuildsUpdaterWrapper;
+
 import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -124,7 +126,7 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
         new Metrics(this, 6672);
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build")) {
-            new GuizhanBuildsUpdater(this, getFile(), "ybw0014", "MobCapturer-CN", "master", false, "zh-CN").start();
+            GuizhanBuildsUpdaterWrapper.start(this, getFile(), "ybw0014", "MobCapturer-CN", "master", false);
         }
 
         new PelletListener(this);

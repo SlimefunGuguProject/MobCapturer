@@ -5,6 +5,8 @@ description: A Slimefun Addon that adds a tool that allows you to capture mobs
 website: https://github.com/TheBusyBiscuit/MobCapturer
 
 main: io.github.thebusybiscuit.mobcapturer.MobCapturer
-depend: [Slimefun]
+depend:
+  - Slimefun
+  - GuizhanLibPlugin
 
 api-version: 1.14

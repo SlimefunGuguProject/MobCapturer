@@ -7,13 +7,16 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
+
+import net.guizhanss.guizhanlib.minecraft.helper.entity.TropicalFishHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.TropicalFish;
 import org.bukkit.entity.TropicalFish.Pattern;
 
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 public class TropicalFishAdapter implements MobAdapter<TropicalFish> {
 

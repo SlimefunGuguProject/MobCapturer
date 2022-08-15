@@ -9,12 +9,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import net.guizhanss.guizhanlib.minecraft.helper.entity.VillagerHelper;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Villager.Profession;
 import org.bukkit.entity.ZombieVillager;
-
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 public class ZombieVillagerAdapter extends ZombieAdapter<ZombieVillager> {
 

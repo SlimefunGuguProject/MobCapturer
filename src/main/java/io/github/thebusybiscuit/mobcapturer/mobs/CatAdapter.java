@@ -7,12 +7,15 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
+import net.guizhanss.guizhanlib.java.BooleanHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
+
+import net.guizhanss.guizhanlib.minecraft.helper.entity.CatHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Cat;
 import org.bukkit.entity.Cat.Type;
-
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 public class CatAdapter extends AbstractTameableAdapter<Cat> {
 

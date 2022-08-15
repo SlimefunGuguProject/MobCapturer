@@ -7,11 +7,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.MushroomCow;
 import org.bukkit.entity.MushroomCow.Variant;
-
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 public class MooshroomAdapter extends AnimalsAdapter<MushroomCow> {
 

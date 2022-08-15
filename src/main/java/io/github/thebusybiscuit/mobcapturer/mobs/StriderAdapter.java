@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
+
 import org.bukkit.entity.Strider;
 
 public class StriderAdapter extends AnimalsAdapter<Strider> {
