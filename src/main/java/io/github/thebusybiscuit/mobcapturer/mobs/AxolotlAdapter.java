@@ -7,16 +7,16 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
-
 import org.bukkit.ChatColor;
-import org.bukkit.entity.MushroomCow;
-import org.bukkit.entity.MushroomCow.Variant;
+import org.bukkit.entity.Axolotl;
+import org.bukkit.entity.Axolotl.Variant;
 
-public class MooshroomAdapter extends AnimalsAdapter<MushroomCow> {
+import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
-    public MooshroomAdapter() {
-        super(MushroomCow.class);
+public class AxolotlAdapter extends AnimalsAdapter<Axolotl> {
+
+    public AxolotlAdapter() {
+        super(Axolotl.class);
     }
 
     @Nonnull
@@ -24,25 +24,27 @@ public class MooshroomAdapter extends AnimalsAdapter<MushroomCow> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + DyeColorHelper.getName(json.get("variant").getAsString()));
+        lore.add(ChatColor.GRAY + "Variant: " + ChatColor.WHITE + ChatUtils.humanize(json.get("variant").getAsString()));
 
         return lore;
     }
 
     @Override
     @ParametersAreNonnullByDefault
-    public void apply(MushroomCow entity, JsonObject json) {
+    public void apply(Axolotl entity, JsonObject json) {
         super.apply(entity, json);
 
         entity.setVariant(Variant.valueOf(json.get("variant").getAsString()));
+        entity.setPlayingDead(json.get("isPlayingDead").getAsBoolean());
     }
 
     @Nonnull
     @Override
-    public JsonObject saveData(@Nonnull MushroomCow entity) {
+    public JsonObject saveData(@Nonnull Axolotl entity) {
         JsonObject json = super.saveData(entity);
 
         json.addProperty("variant", entity.getVariant().name());
+        json.addProperty("isPlayingDead", entity.isPlayingDead());
 
         return json;
     }

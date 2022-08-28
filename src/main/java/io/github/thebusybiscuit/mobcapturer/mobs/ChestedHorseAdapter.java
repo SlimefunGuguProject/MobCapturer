@@ -31,8 +31,8 @@ public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAd
         return lore;
     }
 
-    @ParametersAreNonnullByDefault
     @Override
+    @ParametersAreNonnullByDefault
     public void apply(T entity, JsonObject json) {
         super.apply(entity, json);
 
@@ -61,8 +61,8 @@ public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAd
         return inv;
     }
 
-    @ParametersAreNonnullByDefault
     @Override
+    @ParametersAreNonnullByDefault
     public void applyInventory(T entity, Map<String, ItemStack> inventory) {
         for (Map.Entry<String, ItemStack> entry : inventory.entrySet()) {
             entity.getInventory().setItem(Integer.parseInt(entry.getKey()), entry.getValue());

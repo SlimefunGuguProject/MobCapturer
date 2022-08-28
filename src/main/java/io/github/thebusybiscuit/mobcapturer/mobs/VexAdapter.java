@@ -26,8 +26,8 @@ public class VexAdapter implements MobAdapter<Vex> {
         return lore;
     }
 
-    @ParametersAreNonnullByDefault
     @Override
+    @ParametersAreNonnullByDefault
     public void apply(Vex entity, JsonObject json) {
         MobAdapter.super.apply(entity, json);
 

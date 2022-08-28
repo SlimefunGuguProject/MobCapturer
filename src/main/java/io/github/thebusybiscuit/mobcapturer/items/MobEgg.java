@@ -52,6 +52,7 @@ public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHa
         this.adapter = adapter;
     }
 
+    @Nonnull
     @SuppressWarnings("unchecked")
     public ItemStack getEggItem(@Nonnull T entity) {
         JsonObject json = adapter.saveData(entity);
@@ -77,9 +78,9 @@ public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHa
         return item;
     }
 
-    @SuppressWarnings("unchecked")
-    @Override
     @Nonnull
+    @Override
+    @SuppressWarnings("unchecked")
     public ItemUseHandler getItemHandler() {
         return e -> {
             e.cancel();
@@ -107,8 +108,8 @@ public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHa
                                 for (String key : yaml.getKeys(true)) {
                                     Object obj = yaml.get(key);
 
-                                    if (obj instanceof ItemStack) {
-                                        inventory.put(key, (ItemStack) obj);
+                                    if (obj instanceof ItemStack item) {
+                                        inventory.put(key, item);
                                     }
                                 }
                             } catch (IOException x) {

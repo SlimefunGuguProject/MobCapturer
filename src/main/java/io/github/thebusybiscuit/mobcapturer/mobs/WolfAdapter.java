@@ -35,8 +35,8 @@ public class WolfAdapter extends AbstractTameableAdapter<Wolf> {
         return lore;
     }
 
-    @ParametersAreNonnullByDefault
     @Override
+    @ParametersAreNonnullByDefault
     public void apply(Wolf entity, JsonObject json) {
         super.apply(entity, json);
 

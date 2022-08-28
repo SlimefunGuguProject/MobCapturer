@@ -5,34 +5,34 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import org.bukkit.entity.IronGolem;
+import org.bukkit.entity.Tadpole;
 
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
 
-public class IronGolemAdapter implements MobAdapter<IronGolem> {
+public class TadpoleAdapter implements MobAdapter<Tadpole> {
 
     @Override
     @ParametersAreNonnullByDefault
-    public void apply(IronGolem entity, JsonObject json) {
+    public void apply(Tadpole entity, JsonObject json) {
         MobAdapter.super.apply(entity, json);
 
-        entity.setPlayerCreated(json.get("playerMade").getAsBoolean());
+        entity.setAge(json.get("age").getAsInt());
     }
 
     @Nonnull
     @Override
-    public JsonObject saveData(@Nonnull IronGolem entity) {
+    public JsonObject saveData(@Nonnull Tadpole entity) {
         JsonObject json = MobAdapter.super.saveData(entity);
 
-        json.addProperty("playerMade", entity.isPlayerCreated());
+        json.addProperty("age", entity.getAge());
 
         return json;
     }
 
     @Nonnull
     @Override
-    public Class<IronGolem> getEntityClass() {
-        return IronGolem.class;
+    public Class<Tadpole> getEntityClass() {
+        return Tadpole.class;
     }
 
 }
