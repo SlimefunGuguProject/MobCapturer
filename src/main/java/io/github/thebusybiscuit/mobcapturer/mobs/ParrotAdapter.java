@@ -7,12 +7,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
-import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Parrot;
 import org.bukkit.entity.Parrot.Variant;
+
+import net.guizhanss.guizhanlib.java.BooleanHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
 
 public class ParrotAdapter extends AbstractTameableAdapter<Parrot> {
 

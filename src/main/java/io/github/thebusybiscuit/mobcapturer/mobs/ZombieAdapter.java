@@ -7,10 +7,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Zombie;
+
+import net.guizhanss.guizhanlib.java.BooleanHelper;
 
 public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> {
 

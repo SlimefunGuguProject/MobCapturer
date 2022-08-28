@@ -7,12 +7,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.PufferFishHelper;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.PufferFish;
 
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+
+import net.guizhanss.guizhanlib.minecraft.helper.entity.PufferFishHelper;
 
 public class PufferFishAdapter implements MobAdapter<PufferFish> {
 

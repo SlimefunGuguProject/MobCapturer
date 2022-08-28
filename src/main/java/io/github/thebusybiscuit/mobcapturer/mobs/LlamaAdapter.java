@@ -7,11 +7,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.HorseHelper;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Llama;
 import org.bukkit.entity.Llama.Color;
+
+import net.guizhanss.guizhanlib.minecraft.helper.entity.HorseHelper;
 
 public class LlamaAdapter<T extends Llama> extends ChestedHorseAdapter<T> {
 

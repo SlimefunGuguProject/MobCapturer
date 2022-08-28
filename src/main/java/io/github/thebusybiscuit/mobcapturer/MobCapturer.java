@@ -6,8 +6,6 @@ import java.util.Optional;
 
 import javax.annotation.Nonnull;
 
-import net.guizhanss.guizhanlibplugin.updater.GuizhanBuildsUpdaterWrapper;
-
 import org.bstats.bukkit.Metrics;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -111,6 +109,8 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+
+import net.guizhanss.guizhanlibplugin.updater.GuizhanBuildsUpdaterWrapper;
 
 public class MobCapturer extends JavaPlugin implements SlimefunAddon {
 

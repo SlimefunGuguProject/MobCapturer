@@ -11,9 +11,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
-import net.guizhanss.guizhanlib.minecraft.helper.entity.FoxHelper;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -23,6 +20,9 @@ import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.thebusybiscuit.mobcapturer.InventoryAdapter;
+
+import net.guizhanss.guizhanlib.java.BooleanHelper;
+import net.guizhanss.guizhanlib.minecraft.helper.entity.FoxHelper;
 
 public class FoxAdapter extends AnimalsAdapter<Fox> implements InventoryAdapter<Fox> {
 

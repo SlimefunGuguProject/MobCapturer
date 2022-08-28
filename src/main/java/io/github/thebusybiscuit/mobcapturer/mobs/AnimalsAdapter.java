@@ -7,12 +7,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Animals;
 
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+
+import net.guizhanss.guizhanlib.java.BooleanHelper;
 
 public class AnimalsAdapter<T extends Animals> implements MobAdapter<T> {
 

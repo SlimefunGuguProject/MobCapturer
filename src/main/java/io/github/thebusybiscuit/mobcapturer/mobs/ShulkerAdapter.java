@@ -8,13 +8,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
-
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Shulker;
 
 import io.github.thebusybiscuit.mobcapturer.MobAdapter;
+
+import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
 
 public class ShulkerAdapter implements MobAdapter<Shulker> {
 

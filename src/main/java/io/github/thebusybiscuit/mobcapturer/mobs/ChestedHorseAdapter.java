@@ -9,11 +9,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.ChestedHorse;
 import org.bukkit.inventory.ItemStack;
+
+import net.guizhanss.guizhanlib.java.BooleanHelper;
 
 public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAdapter<T> {
 

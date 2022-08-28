@@ -10,6 +10,8 @@ import com.google.gson.JsonObject;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.PiglinAbstract;
 
+import net.guizhanss.guizhanlib.java.BooleanHelper;
+
 class AbstractPiglinAdapter<T extends PiglinAbstract> extends AbstractHumanoidAdapter<T> {
 
     public AbstractPiglinAdapter(@Nonnull Class<T> entityClass) {
@@ -21,7 +23,7 @@ class AbstractPiglinAdapter<T extends PiglinAbstract> extends AbstractHumanoidAd
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Baby: " + ChatColor.WHITE + json.get("baby").getAsBoolean());
+        lore.add(ChatColor.GRAY + "幼年: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("baby").getAsBoolean()));
 
         return lore;
     }

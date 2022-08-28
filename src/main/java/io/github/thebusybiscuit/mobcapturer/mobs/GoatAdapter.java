@@ -13,6 +13,8 @@ import org.bukkit.entity.Goat;
 import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 
+import net.guizhanss.guizhanlib.java.BooleanHelper;
+
 public class GoatAdapter extends AnimalsAdapter<Goat> {
 
     public GoatAdapter() {
@@ -24,7 +26,7 @@ public class GoatAdapter extends AnimalsAdapter<Goat> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Screaming: " + ChatColor.WHITE + json.get("screaming").getAsBoolean());
+        lore.add(ChatColor.GRAY + "尖叫: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("screaming").getAsBoolean()));
 
         return lore;
     }

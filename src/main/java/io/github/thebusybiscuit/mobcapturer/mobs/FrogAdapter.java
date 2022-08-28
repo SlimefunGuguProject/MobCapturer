@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Frog;
 import org.bukkit.entity.Frog.Variant;
 
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+import net.guizhanss.guizhanlib.minecraft.helper.entity.FrogHelper;
 
 public class FrogAdapter extends AnimalsAdapter<Frog> {
 
@@ -24,7 +24,7 @@ public class FrogAdapter extends AnimalsAdapter<Frog> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Variant: " + ChatColor.WHITE + ChatUtils.humanize(json.get("variant").getAsString()));
+        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + FrogHelper.getVariant(json.get("variant").getAsString()));
 
         return lore;
     }
