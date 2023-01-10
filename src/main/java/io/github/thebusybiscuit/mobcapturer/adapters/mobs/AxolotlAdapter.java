@@ -24,7 +24,7 @@ public class AxolotlAdapter extends AnimalsAdapter<Axolotl> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + AxolotlHelper.getType(json.get("variant").getAsString()));
+        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + AxolotlHelper.getVariant(json.get("variant").getAsString()));
 
         return lore;
     }

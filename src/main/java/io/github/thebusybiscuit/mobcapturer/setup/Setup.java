@@ -2,6 +2,8 @@ package io.github.thebusybiscuit.mobcapturer.setup;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.guizhanss.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Bat;
@@ -253,7 +255,7 @@ public final class Setup {
     @ParametersAreNonnullByDefault
     private static <T extends LivingEntity> void registerMob(EntityType type, MobAdapter<T> adapter,
                                                              String eggTexture) {
-        String name = ChatUtils.humanize(type.name());
+        String name = EntityTypeHelper.getName(type);
 
         MobEgg<T> egg = new MobEgg<>(
             ItemGroups.MOB_EGGS,
