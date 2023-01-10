@@ -15,7 +15,7 @@ public final class Researches {
     public static final Research MOB_CAPTURING = new Research(
         new NamespacedKey(MobCapturer.getInstance(), "mob_capturing"),
         32652,
-        "Capturing Mobs",
+        "捕捉生物",
         28
     );
 

@@ -20,17 +20,16 @@ public final class ItemStacks {
     public static final SlimefunItemStack MOB_CANNON = new SlimefunItemStack(
         "MOB_CANNON",
         Material.BLAZE_ROD,
-        "&6Mob Capturing Cannon",
+        "&6生物捕捉枪",
         "",
-        "&eRight Click &7to shoot a &fMob Caging Pellet"
+        "&e右键点击&7射出一枚&f生物捕捉弹"
     );
     public static final SlimefunItemStack MOB_CAPTURING_PELLET = new SlimefunItemStack(
         "MOB_CAPTURING_PELLET",
         "983b30e9d135b05190eea2c3ac61e2ab55a2d81e1a58dbb26983a14082664",
-        "&fMob Capturing Pellet",
+        "&f生物捕捉弹",
         "",
-        "&7These Pellets are used as",
-        "&7Ammunition for your &6Mob Capturing Cannon"
+        "&7是&6生物捕捉枪&7的弹药"
     );
 
     private ItemStacks() {}
@@ -44,10 +43,10 @@ public final class ItemStacks {
         return new SlimefunItemStack(
             "MOB_EGG_" + type,
             eggTexture,
-            "&aMob Egg &7(" + ChatUtils.humanize(type.toString()) + ")",
+            "&a刷怪蛋 &7(" + ChatUtils.humanize(type.toString()) + ")",
             "",
-            "&7Right Click this Item on a Block",
-            "&7to release your captured Mob"
+            "&7对着方块右键点击此物品",
+            "&7即可释放捕捉的生物"
         );
     }
 }

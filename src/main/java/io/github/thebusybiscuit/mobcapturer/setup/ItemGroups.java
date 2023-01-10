@@ -21,7 +21,7 @@ public final class ItemGroups {
         new NamespacedKey(MobCapturer.getInstance(), "mob_capturer"),
         new CustomItemStack(
             SlimefunUtils.getCustomHead("d429ff1d2015cb11398471bb2f895f7b4c3ccec201e4ad7a86ff24b744878c"),
-            "&dMob Capturer"
+            "&d生物捕捉"
         )
     );
     public static final SubItemGroup TOOLS = new SubItemGroup(
@@ -29,7 +29,7 @@ public final class ItemGroups {
         MAIN,
         new CustomItemStack(
             Material.BLAZE_ROD,
-            "&dTools"
+            "&d工具"
         )
     );
     public static final SubItemGroup MOB_EGGS = new SubItemGroup(
@@ -37,7 +37,7 @@ public final class ItemGroups {
         MAIN,
         new CustomItemStack(
             Material.CHICKEN_SPAWN_EGG,
-            "&aMob Eggs"
+            "&a刷怪蛋"
         )
     );
 

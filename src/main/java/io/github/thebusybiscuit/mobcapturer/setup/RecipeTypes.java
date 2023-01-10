@@ -17,9 +17,8 @@ public final class RecipeTypes {
         new NamespacedKey(MobCapturer.getInstance(), "mob_capturing"),
         new CustomItemStack(
             ItemStacks.MOB_CANNON,
-            "&6Mob Capturing Cannon",
-            "&7Use a &6Mob Capturing Cannon",
-            "&7to catch the given Mob."
+            "&6生物捕捉枪",
+            "&7使用&6生物捕捉枪&7捕获此生物"
         )
     );
 
