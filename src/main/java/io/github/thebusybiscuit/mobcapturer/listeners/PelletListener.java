@@ -1,10 +1,12 @@
 package io.github.thebusybiscuit.mobcapturer.listeners;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
@@ -67,15 +69,27 @@ public class PelletListener implements Listener {
      */
     @ParametersAreNonnullByDefault
     protected boolean canCapture(Player p, LivingEntity entity) {
-        if (Slimefun.getProtectionManager().hasPermission(p, entity.getLocation(), Interaction.ATTACK_ENTITY)) {
-            if (MobCapturer.getRegistry().getConfig().getBoolean("options.capture-named-mobs")) {
-                return true;
-            } else {
-                return entity.getCustomName() == null;
-            }
-        } else {
+
+        if (!Slimefun.getProtectionManager().hasPermission(p, entity.getLocation(), Interaction.ATTACK_ENTITY)) {
+            // no permission check
             return false;
         }
+
+        if (!MobCapturer.getRegistry().getConfig().getBoolean("options.capture-named-mobs") 
+            && entity.getCustomName() != null) { 
+        	return false;
+        }
+
+        List<String> ignoredMobNames = MobCapturer.getRegistry().getConfig().getStringList("options.ignored-mobs");
+        if (ignoredMobNames.size() > 0){
+            String strippedEntityName = ChatColor.stripColor(entity.getCustomName());
+            for (String ignoredMobName : ignoredMobNames) {
+                if (ignoredMobName.equalsIgnoreCase(strippedEntityName)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
