@@ -2,6 +2,8 @@ package io.github.thebusybiscuit.mobcapturer;
 
 import javax.annotation.Nonnull;
 
+import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
+
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,6 +15,8 @@ import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 
 import net.guizhanss.guizhanlibplugin.updater.GuizhanBuildsUpdaterWrapper;
+
+import java.util.logging.Level;
 
 /**
  * MobCapturer Slimefun addon
@@ -44,11 +48,18 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
     public void onEnable() {
         setInstance(this);
 
+        if (!getServer().getPluginManager().isPluginEnabled("GuizhanLibPlugin")) {
+            getLogger().log(Level.SEVERE, "本插件需要 鬼斩前置库插件(GuizhanLibPlugin) 才能运行!");
+            getLogger().log(Level.SEVERE, "从此处下载: https://50l.cc/gzlib");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
         Config cfg = new Config(this);
         new Metrics(this, 6672);
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("Build")) {
-            GuizhanBuildsUpdaterWrapper.start(this, getFile(), "ybw0014", "MobCapturer-CN", "master", false);
+            GuizhanUpdater.start(this, getFile(), "SlimefunGuguProject", "MobCapturer", "master");
         }
 
         registry = new Registry(cfg);

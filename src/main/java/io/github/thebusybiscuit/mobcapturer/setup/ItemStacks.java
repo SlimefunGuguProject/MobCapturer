@@ -3,12 +3,13 @@ package io.github.thebusybiscuit.mobcapturer.setup;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.guizhanss.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
+
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
-import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 
 /**
  * All the {@link SlimefunItemStack}s in MobCapturer.
@@ -43,7 +44,7 @@ public final class ItemStacks {
         return new SlimefunItemStack(
             "MOB_EGG_" + type,
             eggTexture,
-            "&a刷怪蛋 &7(" + ChatUtils.humanize(type.toString()) + ")",
+            "&a刷怪蛋 &7(" + EntityTypeHelper.getName(type) + ")",
             "",
             "&7对着方块右键点击此物品",
             "&7即可释放捕捉的生物"
