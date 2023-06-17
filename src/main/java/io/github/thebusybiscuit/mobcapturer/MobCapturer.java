@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import io.github.thebusybiscuit.mobcapturer.listeners.MobCaptureListener;
 import io.github.thebusybiscuit.mobcapturer.listeners.PelletListener;
 import io.github.thebusybiscuit.mobcapturer.setup.Registry;
 import io.github.thebusybiscuit.mobcapturer.setup.Setup;
@@ -54,7 +55,9 @@ public class MobCapturer extends JavaPlugin implements SlimefunAddon {
 
         Setup.setup();
 
+        // listeners
         new PelletListener(this);
+        new MobCaptureListener(this);
     }
 
     @Override
