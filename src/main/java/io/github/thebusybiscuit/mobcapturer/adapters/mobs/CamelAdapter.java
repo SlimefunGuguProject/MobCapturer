@@ -7,6 +7,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
+import net.guizhanss.guizhanlib.java.BooleanHelper;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Camel;
 
@@ -21,7 +23,7 @@ public class CamelAdapter<T extends Camel> extends AbstractHorseAdapter<T> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Dashing: " + ChatColor.WHITE + json.get("dashing").getAsBoolean());
+        lore.add(ChatColor.GRAY + "冲刺中：" + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("dashing").getAsBoolean()));
 
         return lore;
     }
