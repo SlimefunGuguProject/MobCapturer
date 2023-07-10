@@ -137,7 +137,7 @@ public class MobEgg<T extends LivingEntity> extends SimpleSlimefunItem<ItemUseHa
     }
 
     @Override
-    public boolean canStack(@Nonnull ItemMeta itemMeta, @Nonnull ItemMeta sfMeta) {
-        return itemMeta.getPersistentDataContainer().equals(sfMeta.getPersistentDataContainer());
+    public boolean canStack(@Nonnull ItemMeta sfItemMeta, @Nonnull ItemMeta itemMeta) {
+        return sfItemMeta.getPersistentDataContainer().equals(itemMeta.getPersistentDataContainer());
     }
 }
