@@ -4,6 +4,8 @@ import com.google.gson.JsonObject;
 
 import io.github.thebusybiscuit.mobcapturer.adapters.MobAdapter;
 
+import net.guizhanss.guizhanlib.java.BooleanHelper;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.block.data.BlockData;
@@ -21,7 +23,7 @@ public class EndermanAdapter implements MobAdapter<Enderman> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = MobAdapter.super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "Carrying block: " + ChatColor.WHITE + json.has("carriedBlock"));
+        lore.add(ChatColor.GRAY + "携带方块：" + ChatColor.WHITE + BooleanHelper.yesOrNo(json.has("carriedBlock")));
 
         return lore;
     }
