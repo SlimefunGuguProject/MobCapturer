@@ -14,10 +14,6 @@ import io.github.thebusybiscuit.mobcapturer.setup.Setup;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 
-import net.guizhanss.guizhanlibplugin.updater.GuizhanBuildsUpdaterWrapper;
-
-import java.util.logging.Level;
-
 /**
  * MobCapturer Slimefun addon
  *
