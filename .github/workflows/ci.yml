@@ -28,7 +28,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v3
         with:
-          arguments: build shadowJar
+          arguments: shadowJar
 
       - name: Get build artifact ready
         run: mkdir staging && cp build/libs/*.jar staging
