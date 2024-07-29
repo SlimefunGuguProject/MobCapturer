@@ -15,6 +15,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import org.bukkit.ChatColor;
+import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.AttributeModifier;
@@ -26,6 +27,8 @@ import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.utils.NumberUtils;
 
 /**
@@ -85,7 +88,7 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
     @ParametersAreNonnullByDefault
     @Nonnull
     default JsonObject fromPrimitive(String primitive, PersistentDataAdapterContext context) {
-        return new JsonParser().parse(primitive).getAsJsonObject();
+        return JsonParser.parseString(primitive).getAsJsonObject();
     }
 
     @ParametersAreNonnullByDefault
@@ -109,12 +112,19 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
                 for (JsonElement modifier : modifiers) {
                     JsonObject obj = modifier.getAsJsonObject();
 
-                    String uuid = obj.get("uuid").getAsString();
-                    String name = obj.get("name").getAsString();
                     double amount = obj.get("amount").getAsDouble();
                     int operation = obj.get("operation").getAsInt();
 
-                    AttributeModifier mod = new AttributeModifier(UUID.fromString(uuid), name, amount, Operation.values()[operation]);
+                    AttributeModifier mod;
+
+                    if (Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_21) && obj.has("key")) {
+                        String key = obj.get("key").getAsString();
+                        mod = new AttributeModifier(NamespacedKey.fromString(key), amount, Operation.values()[operation]);
+                    } else {
+                        String uuid = obj.get("uuid").getAsString();
+                        String name = obj.get("name").getAsString();
+                        mod = new AttributeModifier(UUID.fromString(uuid), name, amount, Operation.values()[operation]);
+                    }
                     instance.addModifier(mod);
                 }
             }
@@ -194,8 +204,12 @@ public interface MobAdapter<T extends LivingEntity> extends PersistentDataType<S
                 for (AttributeModifier modifier : instance.getModifiers()) {
                     JsonObject mod = new JsonObject();
 
-                    mod.addProperty("uuid", modifier.getUniqueId().toString());
-                    mod.addProperty("name", modifier.getName());
+                    if (Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_21)) {
+                        mod.addProperty("key", modifier.getKey().toString());
+                    } else {
+                        mod.addProperty("uuid", modifier.getUniqueId().toString());
+                        mod.addProperty("name", modifier.getName());
+                    }
                     mod.addProperty("operation", modifier.getOperation().ordinal());
                     mod.addProperty("amount", modifier.getAmount());
 
