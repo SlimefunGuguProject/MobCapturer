@@ -9,16 +9,16 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import io.github.thebusybiscuit.mobcapturer.MobCapturer;
-import io.github.thebusybiscuit.mobcapturer.adapters.InventoryAdapter;
-
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
 import org.bukkit.entity.Wolf;
 import org.bukkit.entity.Wolf.Variant;
+import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.ItemStack;
 
+import io.github.thebusybiscuit.mobcapturer.adapters.InventoryAdapter;
 import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.papermc.paper.registry.RegistryAccess;
@@ -26,9 +26,6 @@ import io.papermc.paper.registry.RegistryKey;
 
 import net.guizhanss.guizhanlib.java.BooleanHelper;
 import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
-
-import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.inventory.ItemStack;
 
 public class WolfAdapter extends AbstractTameableAdapter<Wolf> implements InventoryAdapter<Wolf> {
 
