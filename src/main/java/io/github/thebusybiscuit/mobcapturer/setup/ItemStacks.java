@@ -11,13 +11,17 @@ import org.bukkit.entity.EntityType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * All the {@link SlimefunItemStack}s in MobCapturer.
  *
  * @author TheBusyBiscuit
  * @author ybw0014
  */
+@UtilityClass
 public final class ItemStacks {
+
     public static final SlimefunItemStack MOB_CANNON = new SlimefunItemStack(
         "MOB_CANNON",
         Material.BLAZE_ROD,
@@ -32,8 +36,6 @@ public final class ItemStacks {
         "",
         "&7是&6生物捕捉枪&7的弹药"
     );
-
-    private ItemStacks() {}
 
     @Nonnull
     @ParametersAreNonnullByDefault

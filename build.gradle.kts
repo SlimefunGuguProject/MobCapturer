@@ -1,8 +1,8 @@
 plugins {
-    id("java-library")
+    id("java")
     id("maven-publish")
-    // id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("io.github.goooler.shadow") version "8.1.8" // use forked shadow plugin until java 21 is supported
+    id("io.freefair.lombok") version "8.7.1"
+    id("com.gradleup.shadow") version "8.3.0"
     id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
 }
 
@@ -16,10 +16,10 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
-    compileOnly("com.github.SlimefunGuguProject:Slimefun4:14602eb009")
-    compileOnly("net.guizhanss:GuizhanLibPlugin:1.7.6")
-    implementation("org.bstats:bstats-bukkit:3.0.2")
+    compileOnly("com.github.Slimefun:Slimefun4:RC-37")
+    implementation("org.bstats:bstats-bukkit:3.0.3")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
+    implementation("net.guizhanss:guizhanlib-all:2.0.0-SNAPSHOT")
 }
 
 group = "io.github.thebusybiscuit"
@@ -36,11 +36,11 @@ publishing {
     }
 }
 
-tasks.withType<JavaCompile>() {
+tasks.compileJava {
     options.encoding = "UTF-8"
 }
 
-tasks.withType<Javadoc>() {
+tasks.javadoc {
     options.encoding = "UTF-8"
 }
 
@@ -51,6 +51,7 @@ tasks.shadowJar {
     }
     doRelocate("org.bstats")
     doRelocate("javax.annotation")
+    doRelocate("io.papermc.paperlib")
     minimize()
     archiveClassifier = ""
 }
