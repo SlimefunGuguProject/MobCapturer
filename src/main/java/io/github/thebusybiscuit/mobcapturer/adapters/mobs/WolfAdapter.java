@@ -19,8 +19,8 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.thebusybiscuit.mobcapturer.adapters.InventoryAdapter;
-import net.guizhanss.guizhanlib.java.BooleanHelper;
-import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.java.BooleanHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.DyeColorHelper;
 import io.papermc.paper.registry.RegistryAccess;
 import io.papermc.paper.registry.RegistryKey;
 

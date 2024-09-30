@@ -14,7 +14,7 @@ import org.bukkit.entity.Shulker;
 
 import io.github.thebusybiscuit.mobcapturer.adapters.MobAdapter;
 
-import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.DyeColorHelper;
 
 public class ShulkerAdapter implements MobAdapter<Shulker> {
 

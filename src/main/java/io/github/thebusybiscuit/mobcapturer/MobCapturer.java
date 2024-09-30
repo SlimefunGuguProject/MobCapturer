@@ -2,7 +2,7 @@ package io.github.thebusybiscuit.mobcapturer;
 
 import javax.annotation.Nonnull;
 
-import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
+import net.guizhanss.minecraft.guizhanlib.updater.GuizhanUpdater;
 
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;

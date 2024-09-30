@@ -3,13 +3,13 @@ package io.github.thebusybiscuit.mobcapturer.setup;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
-
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.Validate;
+
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.EntityTypeHelper;
 
 import lombok.experimental.UtilityClass;
 

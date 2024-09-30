@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.MushroomCow;
 import org.bukkit.entity.MushroomCow.Variant;
 
-import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.DyeColorHelper;
 
 public class MooshroomAdapter extends AnimalsAdapter<MushroomCow> {
 

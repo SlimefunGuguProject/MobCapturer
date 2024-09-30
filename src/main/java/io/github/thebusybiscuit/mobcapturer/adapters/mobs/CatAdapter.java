@@ -12,9 +12,9 @@ import org.bukkit.DyeColor;
 import org.bukkit.entity.Cat;
 import org.bukkit.entity.Cat.Type;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
-import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
-import net.guizhanss.guizhanlib.minecraft.helper.entity.CatHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.java.BooleanHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.DyeColorHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.CatHelper;
 
 public class CatAdapter extends AbstractTameableAdapter<Cat> {
 
@@ -27,7 +27,7 @@ public class CatAdapter extends AbstractTameableAdapter<Cat> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "类型: " + ChatColor.WHITE + CatHelper.getType(json.get("catType").getAsString()));
+        lore.add(ChatColor.GRAY + "类型: " + ChatColor.WHITE + CatHelper.getTypeName(json.get("catType").getAsString()));
 
         if (!json.get("ownerUUID").isJsonNull()) {
             lore.add(ChatColor.GRAY + "项圈颜色: " + ChatColor.WHITE + DyeColorHelper.getName(json.get("collarColor").getAsString()));

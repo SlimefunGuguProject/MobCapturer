@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Axolotl;
 import org.bukkit.entity.Axolotl.Variant;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.AxolotlHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.AxolotlHelper;
 
 public class AxolotlAdapter extends AnimalsAdapter<Axolotl> {
 
@@ -24,7 +24,7 @@ public class AxolotlAdapter extends AnimalsAdapter<Axolotl> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + AxolotlHelper.getVariant(json.get("variant").getAsString()));
+        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + AxolotlHelper.getVariantName(json.get("variant").getAsString()));
 
         return lore;
     }

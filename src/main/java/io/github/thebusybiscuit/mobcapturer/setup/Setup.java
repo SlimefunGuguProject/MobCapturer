@@ -105,9 +105,9 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
 import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil;
 import net.guizhanss.guizhanlib.minecraft.utils.compatibility.EntityTypeX;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.EntityTypeHelper;
 
 import lombok.experimental.UtilityClass;
 
@@ -192,11 +192,6 @@ public final class Setup {
             registerMob(EntityType.SNIFFER, new SnifferAdapter(), "a9946dda3e6162dfaf37921bab6bd31b87a3000624848b65eca1efe73167c960");
         }
         if (MinecraftVersionUtil.isAtLeast(20, 5)) {
-            // https://minecraft-heads.com/custom-heads/head/74256-armadillo
-            // TODO: use a spawn egg texture when available
-            registerMob(EntityType.ARMADILLO, new AnimalsAdapter<>(Armadillo.class), "c9c1e96ce985725e22ed6ccf0f4c4810c729a2538b97bda06faeb3b92799c878");
-        }
-        if (Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_20_5)) {
             // https://minecraft-heads.com/custom-heads/head/74256-armadillo
             // TODO: use a spawn egg texture when available
             registerMob(EntityType.ARMADILLO, new AnimalsAdapter<>(Armadillo.class), "c9c1e96ce985725e22ed6ccf0f4c4810c729a2538b97bda06faeb3b92799c878");

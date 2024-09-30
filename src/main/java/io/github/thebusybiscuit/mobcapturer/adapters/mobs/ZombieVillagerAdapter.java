@@ -14,7 +14,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Villager.Profession;
 import org.bukkit.entity.ZombieVillager;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.VillagerHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.VillagerHelper;
 
 public class ZombieVillagerAdapter extends ZombieAdapter<ZombieVillager> {
 

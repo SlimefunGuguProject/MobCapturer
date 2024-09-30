@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Panda;
 import org.bukkit.entity.Panda.Gene;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.PandaHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.PandaHelper;
 
 public class PandaAdapter extends AnimalsAdapter<Panda> {
 
@@ -24,8 +24,8 @@ public class PandaAdapter extends AnimalsAdapter<Panda> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "主要基因: " + ChatColor.WHITE + PandaHelper.getGene(json.get("mainGene").getAsString()));
-        lore.add(ChatColor.GRAY + "隐藏基因: " + ChatColor.WHITE + PandaHelper.getGene(json.get("hiddenGene").getAsString()));
+        lore.add(ChatColor.GRAY + "主要基因: " + ChatColor.WHITE + PandaHelper.getGeneName(json.get("mainGene").getAsString()));
+        lore.add(ChatColor.GRAY + "隐藏基因: " + ChatColor.WHITE + PandaHelper.getGeneName(json.get("hiddenGene").getAsString()));
 
         return lore;
     }

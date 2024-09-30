@@ -12,7 +12,7 @@ import org.bukkit.entity.Vex;
 
 import io.github.thebusybiscuit.mobcapturer.adapters.MobAdapter;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.java.BooleanHelper;
 
 public class VexAdapter implements MobAdapter<Vex> {
 

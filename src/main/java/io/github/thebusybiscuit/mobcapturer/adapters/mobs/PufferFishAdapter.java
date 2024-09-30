@@ -12,7 +12,7 @@ import org.bukkit.entity.PufferFish;
 
 import io.github.thebusybiscuit.mobcapturer.adapters.MobAdapter;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.PufferFishHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.PufferFishHelper;
 
 public class PufferFishAdapter implements MobAdapter<PufferFish> {
 

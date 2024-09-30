@@ -11,8 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Goat;
 
 import net.guizhanss.guizhanlib.minecraft.utils.MinecraftVersionUtil;
-
-import net.guizhanss.guizhanlib.java.BooleanHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.java.BooleanHelper;
 
 public class GoatAdapter extends AnimalsAdapter<Goat> {
 

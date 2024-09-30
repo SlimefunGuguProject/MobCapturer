@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Rabbit;
 import org.bukkit.entity.Rabbit.Type;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.RabbitHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.RabbitHelper;
 
 public class RabbitAdapter extends AnimalsAdapter<Rabbit> {
 
@@ -24,7 +24,7 @@ public class RabbitAdapter extends AnimalsAdapter<Rabbit> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + RabbitHelper.getType(json.get("rabbitType").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + RabbitHelper.getTypeName(json.get("rabbitType").getAsString()));
 
         return lore;
     }

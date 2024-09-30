@@ -14,8 +14,8 @@ import org.bukkit.entity.TropicalFish.Pattern;
 
 import io.github.thebusybiscuit.mobcapturer.adapters.MobAdapter;
 
-import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
-import net.guizhanss.guizhanlib.minecraft.helper.entity.TropicalFishHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.DyeColorHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.TropicalFishHelper;
 
 public class TropicalFishAdapter implements MobAdapter<TropicalFish> {
 

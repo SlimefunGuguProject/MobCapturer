@@ -10,7 +10,7 @@ import com.google.gson.JsonObject;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Zombie;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.java.BooleanHelper;
 
 public class ZombieAdapter<T extends Zombie> extends AbstractHumanoidAdapter<T> {
 

@@ -7,7 +7,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.google.gson.JsonObject;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.java.BooleanHelper;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Sheep;
 
-import net.guizhanss.guizhanlib.minecraft.helper.DyeColorHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.DyeColorHelper;
 
 public class SheepAdapter extends AnimalsAdapter<Sheep> {
 

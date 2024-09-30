@@ -12,7 +12,7 @@ import org.bukkit.entity.Animals;
 
 import io.github.thebusybiscuit.mobcapturer.adapters.MobAdapter;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.java.BooleanHelper;
 
 public class AnimalsAdapter<T extends Animals> implements MobAdapter<T> {
 

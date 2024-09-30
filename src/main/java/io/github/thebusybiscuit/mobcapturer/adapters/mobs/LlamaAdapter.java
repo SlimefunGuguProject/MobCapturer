@@ -11,7 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Llama;
 import org.bukkit.entity.Llama.Color;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.HorseHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.HorseHelper;
 
 public class LlamaAdapter<T extends Llama> extends ChestedHorseAdapter<T> {
 
@@ -24,7 +24,7 @@ public class LlamaAdapter<T extends Llama> extends ChestedHorseAdapter<T> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HorseHelper.getColor(json.get("color").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HorseHelper.getColorName(json.get("color").getAsString()));
 
         return lore;
     }

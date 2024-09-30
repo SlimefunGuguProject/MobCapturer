@@ -14,7 +14,7 @@ import org.bukkit.entity.Horse.Color;
 import org.bukkit.entity.Horse.Style;
 import org.bukkit.inventory.ItemStack;
 
-import net.guizhanss.guizhanlib.minecraft.helper.entity.HorseHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.HorseHelper;
 
 public class HorseAdapter extends AbstractHorseAdapter<Horse> {
 
@@ -27,8 +27,8 @@ public class HorseAdapter extends AbstractHorseAdapter<Horse> {
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "样式: " + ChatColor.WHITE + HorseHelper.getStyle(json.get("style").getAsString()));
-        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HorseHelper.getColor(json.get("color").getAsString()));
+        lore.add(ChatColor.GRAY + "样式: " + ChatColor.WHITE + HorseHelper.getStyleName(json.get("style").getAsString()));
+        lore.add(ChatColor.GRAY + "颜色: " + ChatColor.WHITE + HorseHelper.getColorName(json.get("color").getAsString()));
 
         return lore;
     }

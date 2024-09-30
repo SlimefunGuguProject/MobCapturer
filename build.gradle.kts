@@ -17,9 +17,9 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
     compileOnly("com.github.Slimefun:Slimefun4:RC-37")
+    compileOnly("net.guizhanss:GuizhanLibPlugin:2.0.0-SNAPSHOT")
     implementation("org.bstats:bstats-bukkit:3.0.3")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
-    implementation("net.guizhanss:guizhanlib-all:2.0.0-SNAPSHOT")
 }
 
 group = "io.github.thebusybiscuit"

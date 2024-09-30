@@ -13,7 +13,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.ChestedHorse;
 import org.bukkit.inventory.ItemStack;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.java.BooleanHelper;
 
 public class ChestedHorseAdapter<T extends ChestedHorse> extends AbstractHorseAdapter<T> {
 

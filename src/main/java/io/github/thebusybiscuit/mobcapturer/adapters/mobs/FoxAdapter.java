@@ -21,8 +21,8 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.thebusybiscuit.mobcapturer.adapters.InventoryAdapter;
 
-import net.guizhanss.guizhanlib.java.BooleanHelper;
-import net.guizhanss.guizhanlib.minecraft.helper.entity.FoxHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.java.BooleanHelper;
+import net.guizhanss.minecraft.guizhanlib.gugu.minecraft.helpers.entity.FoxHelper;
 
 public class FoxAdapter extends AnimalsAdapter<Fox> implements InventoryAdapter<Fox> {
 
@@ -35,7 +35,7 @@ public class FoxAdapter extends AnimalsAdapter<Fox> implements InventoryAdapter<
     public List<String> getLore(@Nonnull JsonObject json) {
         List<String> lore = super.getLore(json);
 
-        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + FoxHelper.getType(json.get("foxType").getAsString()));
+        lore.add(ChatColor.GRAY + "种类: " + ChatColor.WHITE + FoxHelper.getTypeName(json.get("foxType").getAsString()));
         if (json.get("crouching").getAsBoolean()) {
             lore.add(ChatColor.GRAY + "潜行中: " + ChatColor.WHITE + BooleanHelper.yesOrNo(json.get("crouching").getAsBoolean()));
         } else if (json.get("sitting").getAsBoolean()) {
