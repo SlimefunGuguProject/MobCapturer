@@ -9,7 +9,7 @@ plugins {
 repositories {
     mavenLocal()
     mavenCentral()
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://s01.oss.sonatype.org/content/groups/public/")
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://jitpack.io")
 }
@@ -17,7 +17,7 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
     compileOnly("com.github.Slimefun:Slimefun4:RC-37")
-    compileOnly("net.guizhanss:GuizhanLibPlugin:2.0.0-SNAPSHOT")
+    compileOnly("net.guizhanss:GuizhanLibPlugin:2.2.0")
     implementation("org.bstats:bstats-bukkit:3.0.3")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
 }
