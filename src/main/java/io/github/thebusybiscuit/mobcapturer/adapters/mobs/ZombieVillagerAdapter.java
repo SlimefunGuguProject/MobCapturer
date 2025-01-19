@@ -11,6 +11,7 @@ import com.google.gson.JsonObject;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Villager.Profession;
 import org.bukkit.entity.ZombieVillager;
 
 import io.github.thebusybiscuit.mobcapturer.utils.compatibility.VillagerProfessionX;
