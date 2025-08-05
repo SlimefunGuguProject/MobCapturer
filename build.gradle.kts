@@ -2,22 +2,22 @@ plugins {
     id("java")
     id("maven-publish")
     id("io.freefair.lombok") version "8.7.1"
-    id("com.gradleup.shadow") version "8.3.0"
-    id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
+    id("com.gradleup.shadow") version "8.3.6"
+    id("de.eldoria.plugin-yml.bukkit") version "0.7.1"
+    id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
 repositories {
     mavenLocal()
     mavenCentral()
-    maven("https://s01.oss.sonatype.org/content/groups/public/")
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://jitpack.io")
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
-    compileOnly("com.github.Slimefun:Slimefun4:RC-37")
-    compileOnly("net.guizhanss:GuizhanLibPlugin:2.2.0")
+    compileOnly("io.papermc.paper:paper-api:1.21.7-R0.1-SNAPSHOT")
+    compileOnly("com.github.SlimefunGuguProject:Slimefun4:2025.1")
+    compileOnly("net.guizhanss:GuizhanLibPlugin:2.3.0")
     implementation("org.bstats:bstats-bukkit:3.0.3")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
 }
@@ -27,7 +27,8 @@ version = "UNOFFICIAL"
 description = "MobCapturer"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
+    disableAutoTargetJvm()
+    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 publishing {
@@ -61,7 +62,24 @@ bukkit {
     apiVersion = "1.18"
     authors = listOf("TheBusyBiscuit", "ybw0014")
     description = "A Slimefun Addon that adds a tool that allows you to capture mobs"
-    website = "https://github.com/Slimefun-Addon-Community/MobCapturer"
+    website = "https://github.com/SlimefunGuguProject/MobCapturer"
     depend = listOf("Slimefun")
     softDepend = listOf("GuizhanLibPlugin")
+}
+
+tasks {
+    runServer {
+        downloadPlugins {
+            // Slimefun
+            url("https://builds.guizhanss.com/api/download/SlimefunGuguProject/Slimefun4/master/218")
+            // GuizhanLibPlugin
+            url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanLibPlugin/master/latest")
+            // SlimeHUD
+            url("https://builds.guizhanss.com/api/download/SlimefunGuguProject/SlimeHUD/master/latest")
+            // GuizhanCraft for testing convenient
+            url("https://builds.guizhanss.com/api/download/ybw0014/GuizhanCraft/master/latest")
+        }
+        jvmArgs("-Dcom.mojang.eula.agree=true")
+        minecraftVersion("1.21.6")
+    }
 }
