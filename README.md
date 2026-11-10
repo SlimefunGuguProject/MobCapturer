@@ -14,11 +14,7 @@ MobCapturer 向 Slimefun 新增了一把捕捉枪，可以用来捕捉生物。
 
 ## :floppy_disk: 下载 MobCapturer
 
-<p align="center">
-  <a href="https://builds.guizhanss.com/SlimefunGuguProject/MobCapturer/master">
-    <img src="https://builds.guizhanss.com/f/SlimefunGuguProject/MobCapturer/master/badge.svg" alt="Build status"/>
-  </a>
-</p>
+[下载 MobCapturer](https://resources.guizhanss.com/plugin/MobCapturer)
 
 ## :headphones: Discord 服务器
 你可以在 Discord 上找到 Slimefun 社区!
